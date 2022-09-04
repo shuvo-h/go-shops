@@ -1,0 +1,62 @@
+.header_top{
+    background: #f5f6f8;
+    font-size: 1.1rem;
+    letter-spacing: -0.027em;
+    text-transform: capitalize;
+}
+
+.container_top{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px; 
+    justify-content: space-between;
+    font-size: 0.7rem;
+}
+
+.welcomeMessage{
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: -0.022em;
+    white-space: nowrap;
+    padding: 14px 0;
+    text-transform: uppercase;
+    /* font-size: 0.7rem; */
+}
+
+.nav_items{
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav_item{
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+}
+.nav_item_width{
+    width: 40px;
+}
+.nav_item_expand{
+    max-height: 0px;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 4px 12px;
+    position: absolute;
+    left: -10px;
+    box-shadow: 0 4px 20px -8px rgb(0 0 0 / 30%);
+    transition: 0.4s;
+}
+
+.nav_item:hover .nav_item_expand{
+    max-height: 500px;
+    transition: 0.4s;
+}
+
+.navLink{
+    margin: 0 3px;
+}

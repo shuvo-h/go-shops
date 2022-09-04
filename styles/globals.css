@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -15,6 +14,34 @@ a {
   box-sizing: border-box;
 }
 
+.baseContainer{
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+}
+
+.centerEL{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verticalCenterEL{
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -24,3 +51,5 @@ a {
     background: black;
   }
 }
+
+
