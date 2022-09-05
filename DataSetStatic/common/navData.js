@@ -1,3 +1,8 @@
+import { AiOutlineShopping } from 'react-icons/ai';
+import { RiScales3Fill } from 'react-icons/ri';
+import { BsHeart } from 'react-icons/bs';
+import { IconContext } from "react-icons";
+
 export const navData = {
     welcome_message: "WELCOME TO GOSHOP STORE!",
     navLinks:{
@@ -16,10 +21,25 @@ export const headerMiddleData = {
         width: 200,
         height: 75
     },
-    productCategories: [],
     contact:{
-        title:"Live Chat or :",
+        title:"Live Chat ",
         phone_number: '0(123)456-789'
     },
-    buttonTitles: ["Wishlist","Compare","Cart"]
+    buttons: [
+        {
+            title: "Wishlist",
+            // reactIcon: "BsHeart" // must import from react icons in component
+            reactIcon: <IconContext.Provider value={{ size:"20",color: "blue", className: "global-class-name" }}><BsHeart /></IconContext.Provider>
+        },
+        {
+            title: "Compare",
+            // reactIcon: "RiScales3Fill" 
+            reactIcon: <IconContext.Provider value={{ size:"20",color: "blue", className: "global-class-name" }}><RiScales3Fill /></IconContext.Provider>
+        },
+        {
+            title: "Cart",
+            // reactIcon: "AiOutlineShopping" 
+            reactIcon: <IconContext.Provider value={{ size:"20",color: "blue", className: "global-class-name" }}><AiOutlineShopping /></IconContext.Provider>
+        },
+    ]
 }
