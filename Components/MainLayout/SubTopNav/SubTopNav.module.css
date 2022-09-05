@@ -45,12 +45,25 @@
     max-height: 0px;
     overflow: hidden;
     margin-top: 10px;
-    padding: 4px 12px;
+    padding: 10px 12px 4px 12px;
     position: absolute;
     left: -10px;
     box-shadow: 0 4px 20px -8px rgb(0 0 0 / 30%);
     transition: 0.4s;
 }
+/*
+.nav_item_expand::before{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid lightsalmon;
+}
+*/
 
 .nav_item:hover .nav_item_expand{
     max-height: 500px;
@@ -60,3 +73,4 @@
 .navLink{
     margin: 0 3px;
 }
+
