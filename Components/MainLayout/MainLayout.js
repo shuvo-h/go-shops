@@ -3,6 +3,7 @@ import mainLayoutST from './mainLayout.module.css'
 import HeadMainPage from '../common/HeadMain/HeadMainPage';
 import SubTopNav from './SubTopNav/SubTopNav';
 import HeaderMiddle from './HeaderMiddle/HeaderMiddle';
+import HeaderBottom from './HeaderBottom/HeaderBottom';
 
 const MainLayout = ({children,pageMeta}) => {
     return (
@@ -11,7 +12,7 @@ const MainLayout = ({children,pageMeta}) => {
             <header className={`${mainLayoutST.header}`}>
                 <SubTopNav></SubTopNav>
                 <HeaderMiddle></HeaderMiddle>
-                main Nav
+                <HeaderBottom></HeaderBottom>
             </header>
             <main>
                 {children}

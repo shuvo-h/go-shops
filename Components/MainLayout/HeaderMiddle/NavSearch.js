@@ -6,7 +6,10 @@ import STmainLayout from "../mainLayout.module.css";
 
 const NavSearch = () => {
 
-    const categories = useSelector(({Home}) => Home.categories);
+    // const categories = useSelector(({Home}) => Home.categories.find(ctg =>ctg.category_type === "main")?.category);
+    const mainCategories = useSelector(({Home}) => Home.categories.main);
+    console.log(mainCategories);
+    
 
     return (
         <div className={`centerEL ${STmainLayout.middleNave_search_container}`}>
@@ -15,7 +18,7 @@ const NavSearch = () => {
                     <select name="" id="">
                         <option value="all">All Categories</option>
                         {
-                            categories.map(category => <option value={category} key={category}>{category}</option>)
+                            mainCategories?.map(category => <option value={category?.main_category} key={category?.main_category}>{category?.main_category}</option>)
                         }
                     </select>
                 </div>

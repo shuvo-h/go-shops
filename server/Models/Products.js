@@ -4,7 +4,12 @@ const productSchema = new mongoose.Schema(
     {
         title:{type: String, trim: true, required: true},
         slug:{type: String, required: true, unique: true},
-        category:{type: String, required: true},
+        category:{
+            main: {type: String, required: true},
+            gender: {type: String, required: true},
+            sub_category: {type: String, required: true},
+            react_icon: {type: String, required: true}
+        },
         img:{type: String, required: true},
         price:{type: Number, required: true,default:0},
         brand:{type: String, required: true},
