@@ -1,11 +1,16 @@
-import React from 'react';
-import mainLayoutST from '../mainLayout.module.css'
+import React, { useState } from 'react';
+import mainLayoutST from '../mainLayout.module.css';
 import { useSelector } from 'react-redux';
 import NavLink from "next/link"
 import { category_icon, getReactIcon } from '../../../utils/client_utils/icons/getReactIcon';
+import HeadNavSubCategory from './HeadNavSubCategory';
+
+
 
 const NavBottomCategory = () => {
-    const mainCategory = useSelector(({Home}) => Home.categories.main);
+    const [subCtgHover,setSubCtgHover] = useState("")
+    const mainCategory = useSelector(({Home}) => Home.categories);
+    console.log(mainCategory);
     
     return (
         <div className={mainLayoutST.headerBTM_ct_wrapper}>
@@ -16,15 +21,30 @@ const NavBottomCategory = () => {
                 </div>
             </div>
             <div className={mainLayoutST.headerBTM_main_ctg}>
-                {
-                    mainCategory?.length && mainCategory?.map(mainCtg => <NavLink href={"/"} key={mainCtg.main_category}>
-                        <a className={mainLayoutST.category_spacing}>
-                            {getReactIcon(mainCtg.icon.toString(),22)} 
-                            {mainCtg.main_category}
-                        </a>
-                    </NavLink>)
-                }
-                <p>VIEW ALL CATEGORIES</p>
+                <div>
+                    {
+                        mainCategory?.length && mainCategory?.slice(0,10).map((mainCtg,idx) =>{ 
+                            console.log(mainLayoutST);
+                            return <div className={`${mainLayoutST.headerBTM_main_ctg_wrapper}`} key={mainCtg.category} style={{position:"relative",}}>
+                            <div>
+                                <NavLink href={"/"}>
+                                    <a className={mainLayoutST.category_spacing}>
+                                        {getReactIcon(mainCtg.icon.toString(),22)} 
+                                        {mainCtg.category} {">"}
+                                    </a>
+                                </NavLink>
+                            </div>
+                            <div className={mainLayoutST.sub_ctg_wrap}>
+                                <div className={`${mainLayoutST[`sub_ctg_${idx}`]}`}>
+                                    <HeadNavSubCategory sub_category={mainCtg.sub_category}></HeadNavSubCategory>
+                                </div>
+                            </div>
+                        </div>}
+                        )
+                    }
+
+                </div>
+                <NavLink href={"/"}><a className={mainLayoutST.category_spacing}>VIEW ALL CATEGORIES</a></NavLink>
             </div>
         </div>
     );
@@ -32,17 +52,8 @@ const NavBottomCategory = () => {
 
 export default NavBottomCategory;
 
-/*
-const categories = {
-    property: "category",
-    main: [{
-        main_category: "Fashion",
-        icon: "fashion icon"
-    }],
-    sub: [{
-        sub_category : "Latest",
-        icon:"new icon"
-    }],
-    gender: ["Male","Female"]
-}
-*/
+
+
+
+
+

@@ -92,8 +92,11 @@
 
 
 /* header bottom nav styles start */
-.headerBTM_ct_wrapper{
+.headerBTM_ct_parent_wrapper{
     position: relative;
+}
+.headerBTM_ct_wrapper{
+    /* position: relative; */
 }
 .headerBTM_ctg{
     font-size: 15px;
@@ -123,19 +126,144 @@
 .headerBTM_main_ctg{
     position: absolute;
     box-shadow: 0 0 3px 1px rgb(241, 240, 240);
-    top: 44px;
-    left: 0;
+    top: 60px;
+    left: 10;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    max-height: 0; 
 }
-.headerBTM_main_ctg a{
-    /* margin: 0; */
+.headerBTM_main_ctg:hover{
+    max-height: auto;
+    /* background-color: orange; */
+    overflow: visible;
 }
 
-.headerBTM_main_ctg a:not(:last-child){
+/* .headerBTM_main_ctg_wrapper{ */
+.headerBTM_main_ctg_wrapper:hover{
+    display: flex;
+    grid-template-columns: 1fr 2fr;
+}
+
+.category_spacing{
     border-bottom: 1px solid #eeeeee;
+}
+
+.headerBTM_ct_wrapper:hover  .headerBTM_main_ctg{
+    max-height: 500px;
+    transition: all 0.4s ease-in;
+}
+
+/* sub category styles to keep different hover style for sub category */
+.sub_ctg_wrap{
+    position: absolute;
+    top: 0;
+    left: 280px;
+    /* background-color: blue; */
+    --subCtgShadow: 0 2px 35px rgb(0 0 0 / 10%); 
+    --subCtgTransition: max-width 0.3s ease-in; 
+}
+
+.sub_ctg_0 {max-width: 0px; overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_0{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_1{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_1{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_2{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_2{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_3{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_3{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_4{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_4{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_5{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_5{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_6{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_6{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_7{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_7{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_8{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_8{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+.sub_ctg_9{max-width: 0px;  overflow: hidden;}
+.headerBTM_main_ctg_wrapper:hover .sub_ctg_9{max-width: 680px; white-space: nowrap; transition: var(--subCtgTransition); box-shadow: var(--subCtgShadow);}
+
+
+/* .sub_ctg_1{display: none;} */
+
+
+.navBTM_sub_ctg{
+    display: flex;
+    gap: 30px;
+}
+
+.navBTM_sub_ctg div{
+    padding-top: 10px;
+}
+
+.navBTM_gender{
+    margin: 0 0 0 10px;
+    padding: 0 0 10px;
+    border-bottom: 1px solid rgb(216, 210, 210);
+}
+.navBTM_sub_ctg_btn{
+    margin: 2px 0 3px 0px;
+    padding: 2px 0 2px 15px;
+    cursor: pointer;
+}
+.navBTM_sub_ctg_btn:hover{
+    background-color: lightgray;
+    border-radius: 3px;
+}
+
+.navBTM_subCtg_discount{
+    background: url('/assest/images/menu/banner-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 235px;
+    height: 300px;
+}
+.navBTM_subCtg_discount h4{
+    font-size: 16px;
+    margin: 20px 0 5px 20px;
+}
+.navBTM_subCtg_discount h2{
+    font-size: 18px;
+    margin: 0 0 5px 20px;
+}
+.navBTM_subCtg_discount h5{
+    font-size: 13px;
+    margin: 0 0 5px 20px;
 }
 
 .headerBottomNav_links{
     flex-grow: 1;
 }
 
+.headerBottomNav_links_list{
+    display: flex;
+    list-style: none;
+}
+.headerBottomNav_links_list li{
+    flex-grow: 1;
+}
+.headerBottomNav_links_list a{
+    --border-color: purple;
+    --border-width: 5px;
+    --bottom-distance: 0px; /* you can increase this */
+    
+    color: #666;
+    display: inline-block;
+    background-image: linear-gradient(var(--border-color), var(--border-color));
+    background-size: 0% var(--border-width);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.3s;
+    margin: 5px 0;
+  
+}
+.headerBottomNav_links_list a:hover{
+    background-size: 100% var(--border-width);
+}
+.headerBottomNav_links_list .active_link{
+    background-size: 100% var(--border-width);
+    color: blue;
+}
 /* header bottom nav styles end */
+

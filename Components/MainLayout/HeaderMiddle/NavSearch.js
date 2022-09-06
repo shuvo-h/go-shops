@@ -7,7 +7,7 @@ import STmainLayout from "../mainLayout.module.css";
 const NavSearch = () => {
 
     // const categories = useSelector(({Home}) => Home.categories.find(ctg =>ctg.category_type === "main")?.category);
-    const mainCategories = useSelector(({Home}) => Home.categories.main);
+    const mainCategories = useSelector(({Home}) => Home.categories);
     console.log(mainCategories);
     
 
@@ -18,7 +18,7 @@ const NavSearch = () => {
                     <select name="" id="">
                         <option value="all">All Categories</option>
                         {
-                            mainCategories?.map(category => <option value={category?.main_category} key={category?.main_category}>{category?.main_category}</option>)
+                            mainCategories?.map(category => <option value={category?.category} key={category?.category}>{category?.category}</option>)
                         }
                     </select>
                 </div>

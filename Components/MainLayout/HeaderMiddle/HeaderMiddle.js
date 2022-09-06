@@ -11,7 +11,6 @@ import NavSearch from './NavSearch';
 const HeaderMiddle = () => {
     const {logo,productCategories,contact,buttonTitles} = headerMiddleData;
     return (
-        // <div className='baseContainer '>
         <div className={STmainLayout.middleNave_Container}>
             <div className={`baseContainer ${STmainLayout.middleNave_wrapper}`}>
                 <div>
