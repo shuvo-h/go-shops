@@ -131,6 +131,8 @@
     overflow: hidden;
     transition: all 0.2s ease-in;
     max-height: 0; 
+    background-color: white;
+    z-index: 1;
 }
 .headerBTM_main_ctg:hover{
     max-height: auto;
@@ -158,7 +160,7 @@
     position: absolute;
     top: 0;
     left: 280px;
-    /* background-color: blue; */
+    background-color: white;
     --subCtgShadow: 0 2px 35px rgb(0 0 0 / 10%); 
     --subCtgTransition: max-width 0.3s ease-in; 
 }
@@ -267,3 +269,110 @@
 }
 /* header bottom nav styles end */
 
+
+
+/* footer styles start  */
+.footer_subscrib{
+    padding: 2rem 1rem;
+    color: white;
+    gap: 10px;
+}
+.footer_subscrib div:nth-child(1){
+    gap: 10px;
+} 
+.footer_subscrib div:nth-child(1) h4{
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: 0px;
+
+}
+.footer_subscrib div:nth-child(1) p{
+    margin: 0;
+    line-height: 4px;
+    font-weight: 400;
+}
+.footer_subscrib div:nth-child(2){
+    flex-grow: 1;
+}
+.footer_subscrib div:nth-child(2) input{
+    outline: 0;
+    border-radius: 0.4rem;
+    border: none;
+    font-size: 1rem;
+    border-width: 1px 01px 1px;
+    padding: 0.85rem 2rem;
+    color: #999;
+    width: 100%;
+    /* margin: 0 10px 0 20px; */
+}
+
+.subscrib_btn{
+    border: none;
+    color: #fff;
+    border-color: #333;
+    background-color: #333;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 0.92em 1.85em;
+    border-radius: 3px;
+}
+.subscrib_btn:hover{
+    background-color: rgb(68, 67, 67);
+
+}
+
+/* footer middle  */
+.footerMiddle{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 50px;
+    font-size: 15px;
+    margin-top: 50px;
+    border-bottom: 1px  solid rgb(216, 210, 210);
+    padding-bottom: 40px;
+}
+.footerMiddle div:nth-child(1){
+    /* max-width: 300px; */
+    /* border: 1px solid; */
+}
+.footerMiddle p{
+    margin: 10px 0;
+}
+.footerMiddle h5{
+    margin: 0;
+    font-size: 17px;
+}
+
+.footerMiddle .footerLinks h5{
+    font-size: 16px;
+}
+
+.footerMiddle .footerLinks div{
+    margin: 8px 0;
+}
+
+.footerMiddle .footerLinks div a{
+    font-size: 13px;
+    color: #999;
+}
+
+.footer_payCard{
+    gap: 20px;
+    color: #999;
+    font-size: 13px;
+    padding: 20px 0;
+}
+
+.footer_payCard div:nth-child(2){
+    flex-grow: 1;
+    text-align: right;
+}
+.footer_payCard div:nth-child(3) span{
+    margin: 0 3px;
+}
+
+/* footer styles end */

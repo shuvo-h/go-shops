@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { home_pageInfoCard } from '../../DataSetStatic/HomePage/data_home';
 
 const initialHomeState = {
     categories:[],
@@ -11,7 +12,6 @@ export const HomeSlice = createSlice({
     setCategoriesInHome: (state,{payload}) => {
         state.categories = payload;
     },
-    
     
   },
 })

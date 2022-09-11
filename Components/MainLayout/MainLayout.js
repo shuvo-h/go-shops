@@ -4,6 +4,7 @@ import HeadMainPage from '../common/HeadMain/HeadMainPage';
 import SubTopNav from './SubTopNav/SubTopNav';
 import HeaderMiddle from './HeaderMiddle/HeaderMiddle';
 import HeaderBottom from './HeaderBottom/HeaderBottom';
+import Footer from './Footer/Footer';
 
 const MainLayout = ({children,pageMeta}) => {
     return (
@@ -18,9 +19,7 @@ const MainLayout = ({children,pageMeta}) => {
                 {children}
             </main>
             <footer>
-                subscrib
-                footer details 
-                copywrite
+                <Footer></Footer>
             </footer>
         </div>
     );
