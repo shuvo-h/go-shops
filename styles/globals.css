@@ -37,7 +37,20 @@ a {
   align-items: center;
 }
 
-
+.btn{
+  border: none;
+  background-color: rgb(147, 180, 240);
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out ;
+}
+.btn:hover{
+  background-color: rgb(51, 109, 216);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out ;
+}
 
 
 

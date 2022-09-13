@@ -1,0 +1,72 @@
+.pageHeading{
+    height: 10rem;
+    background-color: #eee;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+.showPagination{
+    color: #333;
+    border-bottom: 1px solid #eeee;
+    margin-bottom: 50px;
+}
+
+.showPagination p{
+    margin-bottom: 10px;
+}
+
+.accountContainer{
+    display: grid;
+    grid-template-columns: 300px 6fr;
+    gap: 2%;
+}
+
+.accountContainer nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.accountContainer nav a{
+    margin-bottom: 0;
+    padding: 0.7rem 0 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: none;
+    border-bottom: 1px solid #eee;
+}
+
+.viewArea{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.viewArea a{
+    position: relative;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    line-height: 16px;
+}
+.viewArea a svg{
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+}
+.viewArea a span{
+    margin-top: 15px;
+    border-bottom: 1px solid transparent;
+}
+
+.viewArea a:hover{
+    color: #336699;
+}
+.viewArea a:hover svg{
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transform: scale(1.2);
+}
+.viewArea a:hover span{
+    border-bottom: 1px solid #336699;
+}
+

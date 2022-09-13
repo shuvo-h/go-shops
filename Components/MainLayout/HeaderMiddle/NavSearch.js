@@ -8,7 +8,7 @@ const NavSearch = () => {
 
     // const categories = useSelector(({Home}) => Home.categories.find(ctg =>ctg.category_type === "main")?.category);
     const mainCategories = useSelector(({Home}) => Home.categories);
-    console.log(mainCategories);
+    // console.log(mainCategories);
     
 
     return (

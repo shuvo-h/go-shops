@@ -13,10 +13,14 @@ export const productInsertToDB = async(req,res) =>{
         if (product._id) {
             res.json({data:newProduct,error:{status:false,message:""}})
         }else{
+            res.json({data:newProduct,error:{status:true,message:"Something went wrong. please try again!"}})
         }
     } catch (error) {
         console.log(error.message);
         res.json({data:{},error:{status:true,message:error.message}})
     }
 }
+
+
+
 

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 const HeaderBottom = () => {
     const router = useRouter();
     const {deal,track} = mainNavItems;
-    console.log(router.pathname);
+    // console.log(router.pathname);
     return (
         <div className={`baseContainer centerEL ${mainLayoutST.headerBTM_ct_parent_wrapper}`}>
             <NavBottomCategory></NavBottomCategory>

@@ -3,7 +3,7 @@ import mainLayoutST from '../mainLayout.module.css';
 
 
 const HeadNavSubCategory = ({sub_category}) => {
-    console.log(sub_category.slice(2));
+    // console.log(sub_category.slice(2));
     return (
         <div className={mainLayoutST.navBTM_sub_ctg}>
             <div>

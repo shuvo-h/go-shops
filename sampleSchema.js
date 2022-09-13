@@ -193,6 +193,7 @@ const shopOwnerSchema = {
     img:"",
     role: ["user","vendor"]
 } 
+
 // vendor details
 const vendorSchema = {
     vandor_name: "OAIO STORE",

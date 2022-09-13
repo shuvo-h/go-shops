@@ -10,7 +10,7 @@ import HeadNavSubCategory from './HeadNavSubCategory';
 const NavBottomCategory = () => {
     const [subCtgHover,setSubCtgHover] = useState("")
     const mainCategory = useSelector(({Home}) => Home.categories);
-    console.log(mainCategory);
+    // console.log(mainCategory);
     
     return (
         <div className={mainLayoutST.headerBTM_ct_wrapper}>
@@ -24,7 +24,7 @@ const NavBottomCategory = () => {
                 <div>
                     {
                         mainCategory?.length && mainCategory?.slice(0,10).map((mainCtg,idx) =>{ 
-                            console.log(mainLayoutST);
+                            // console.log(mainLayoutST);
                             return <div className={`${mainLayoutST.headerBTM_main_ctg_wrapper}`} key={mainCtg.category} style={{position:"relative",}}>
                             <div>
                                 <NavLink href={"/"}>

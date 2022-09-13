@@ -7,7 +7,7 @@ export const navData = {
     welcome_message: "WELCOME TO GOSHOP STORE!",
     navLinks:{
         login:{title:"Sign In",path:"/login"},
-        register:{title:"Register",path:"/register"},
+        register:{title:"Register",path:"/registration"},
     },
     account:{
         accountTitle: "My Account",
