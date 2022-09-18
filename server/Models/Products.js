@@ -6,36 +6,35 @@ const productSchema = new mongoose.Schema(
         slug:{type: String, required: true, unique: true},
         category:{
             main: {type: String, required: true},
-            gender: {type: String, required: true},
-            sub_category: {type: String, required: true},
-            react_icon: {type: String, required: true}
+            separator: [{type: String, required: false}],
+            sub_category: [{type: String, required: true}],
+            // react_icon: {type: String, required: true}
         },
         img:[{type: String, required: true}],
         price:{type: Number, required: [true,"Price is required"],min:[0,"Price can't be negative"]},
         brand:{type: String, required: [true,"Brand name is required"]},
-        // rating:{type: Number, required: true,default:0},
-        // reviewCount: [{}],
+        rating:{type: Number, required: true,default:0},
+        reviewCount: {type: Number, required: true,default:0},
         quantity:{
             type: Number,
-            required: true,
+            required: [true,"Quantity is required"],
             min: [0, "quantity can't be negative"],
             validate: {
-                validator: () =>{
+                validator: (value) =>{
                     // custom validate in this function, ie. use regex, chek integer, float
                     const isInteger = Number.isInteger(value);
                     return isInteger ? true : false;
-                }
+                },
+                message: props => `Quantity must need to be integer. Got ${props.value}`
             },
-            message: "Quantity must need to be integer."
         },
-        unit:{
-          type: String,
-          require: true,
-          enum:{
-            
-          }   
-        },
+        
         description:{type: String, required: true},
+        shop:{
+            type: mongoose.Types.ObjectId,
+            ref: "Shops",
+            required: [true,"Shop name for this product must be required"]
+        }
     },
     {
         timestamps: true

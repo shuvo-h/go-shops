@@ -19,6 +19,7 @@ const Login = () => {
             router.push("/")
         }
     },[user])
+    
 
     const onChangeLoginInfo = (e) =>{
         setUserInfo(pre=>{

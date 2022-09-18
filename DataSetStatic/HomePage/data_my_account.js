@@ -16,6 +16,8 @@ export const myAccounSideNav = [
     {title:"Account details", path:"/account-details"},
     {title:"Wishlist", path:"/wishlist"},
     {title:"Logout", path:"/logout"},
+
+    {title:"Shop", path:"/my-account/shop"},
 ]
 
 

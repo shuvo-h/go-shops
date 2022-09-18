@@ -10,3 +10,24 @@ export const schemaErrorFormatter = error =>{
 
     return errors;
 }
+
+
+export const schemaErrorFormatterNested = schemaError =>{
+    let formatedErrors = {};
+
+    Object.keys(schemaError.errors).forEach((key) => {
+        const nestedKey = key.split(".");
+        switch (nestedKey.length) {
+            case 2:
+                formatedErrors[nestedKey[0]] =  formatedErrors[nestedKey[0]] ? {... formatedErrors[nestedKey[0]]} : {};
+                formatedErrors[nestedKey[0]][nestedKey[1]] = schemaError.errors[key].message;
+                break;
+        
+            default:
+                formatedErrors[key] = schemaError.errors[key].message;
+                break;
+        }
+    });
+
+    return formatedErrors;
+}

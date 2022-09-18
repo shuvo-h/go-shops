@@ -18,8 +18,16 @@ export const generateToken = user =>{
         address: user.addresses
     }
     const jwt_option = {
-        expiresIn: "15s"
+        expiresIn: "1d"
     }
     const token = jwt.sign(payloadObj,process.env.JWT_SECRET,jwt_option);
     return token;
+}
+
+export const verifyToken = async(token) =>{
+    const jwt_option = {
+        expiresIn: "1d"
+    }
+    const decodedUser = jwt.verify(token,process.env.JWT_SECRET,jwt_option);
+    return decodedUser;
 }

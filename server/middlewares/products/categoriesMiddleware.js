@@ -18,7 +18,7 @@ export const getProductCategoriesCtl = async(req,res) =>{
 }
 
 export const addNewCategoryCtl = async(req,res) =>{
-    
+    // console.log(req.body,"adding new catg");
     try {
         await db.connect();
         const newCategory = new CategoryModel(req.body);

@@ -20,10 +20,38 @@ const shopSchema = new mongoose.Schema(
         address:{
             location: {
                 type: String,
-                required: [true, "Please provide your address"], 
+                required: [true, "Please provide your shop location"], 
                 trim: true, 
                 minLength: [3, "Address must be at least 3 characteres."],
                 maxLength: [100, "Address is too large."],
+            },
+            city: {
+                type: String,
+                required: [true, "Please provide the city of the shop"], 
+                trim: true, 
+                minLength: [3, "City must be at least 3 characteres."],
+                maxLength: [100, "Address is too large."],
+            },
+            zip: {
+                type: String,
+                required: [true, "Please provide your ZIP code"], 
+                trim: true, 
+                minLength: [3, "ZIP code must be at least 3 characteres."],
+                maxLength: [50, "Address is too large."],
+            },
+            state: {
+                type: String,
+                required: [true, "Please provide your state"], 
+                trim: true, 
+                minLength: [3, "State must be at least 3 characteres."],
+                maxLength: [20, "State is too large."],
+            },
+            country: {
+                type: String,
+                required: [true, "Please provide your country name"], 
+                trim: true, 
+                minLength: [3, "Country must be at least 3 characteres."],
+                maxLength: [50, "Address is too large."],
             },
             phone: {
                 type: String,

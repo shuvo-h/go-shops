@@ -36,7 +36,7 @@ const NavBottomCategory = () => {
                             </div>
                             <div className={mainLayoutST.sub_ctg_wrap}>
                                 <div className={`${mainLayoutST[`sub_ctg_${idx}`]}`}>
-                                    <HeadNavSubCategory sub_category={mainCtg.sub_category}></HeadNavSubCategory>
+                                    <HeadNavSubCategory sub_category={mainCtg.sub_category} separator={mainCtg.separator}></HeadNavSubCategory>
                                 </div>
                             </div>
                         </div>}

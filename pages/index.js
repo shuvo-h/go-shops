@@ -45,10 +45,12 @@ export default function Home({categories,topCategories}) {
 
 
 export const getStaticProps = async(context) =>{
+  console.log("ok fu");
   // get categories from self API
   const categoriesRes = await getProductCategories();
   // get categories from static file 
   const categories = categoriesRes.length > 0 ? categoriesRes : productStaticCategory;
+// console.log(categoriesRes);
 
   // get top products of this month
   const topCategoriesRes = await getTopCategoriesOfMonth();
@@ -61,7 +63,7 @@ export const getStaticProps = async(context) =>{
     },
     notFound: false,
     // revalidate: 2 * 60 * 60  // regenerate HTML for request after every 2 hours
-    revalidate: 30  // regenerate HTML for request after every 2 minutes
+    revalidate: 2  // regenerate HTML for request after every 2 minutes
   }
 }
 

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import LoaderSquareCombine from '../Components/common/Loader/LoaderSquareCombine/LoaderSquareCombine';
 import { useSelector } from 'react-redux';
 
-const Login = () => {
+const Registration = () => {
     const router = useRouter();
     const [newUserInfo,setNewUser] = useState({role:"user"});
     const [isLoadingReg,setIsLoadingReg] = useState(false);
@@ -15,8 +15,8 @@ const Login = () => {
     const {user,login_status,login_err} = useSelector(state =>state.User);
     useEffect(()=>{
         if (user) {
-            alert("You are already logged in!");
-            router.push("/");
+            // alert("You are already logged in!");
+            // router.push("/");
         }
     },[user])
 
@@ -174,4 +174,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Registration;

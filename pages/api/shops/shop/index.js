@@ -1,5 +1,6 @@
 import nextHandler from "next-connect";
 import { addShopCtl } from "../../../../server/middlewares/shops/shopMiddleware";
+import { checkAuthLogin } from "../../../../server/middlewares/user/checkAuth";
 
 const handler = nextHandler();
 
@@ -21,7 +22,7 @@ const sampleBody = {
 
 // add middleware to check header auth token here
 // POST API - add a new shop
-handler.post(addShopCtl);
+handler.post(checkAuthLogin,addShopCtl);
 
 
 

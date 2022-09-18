@@ -1,0 +1,13 @@
+.headingContainer{
+    background-color: rgb(238,238,238);
+    border: 1px solid transparent;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.heading{
+    font-weight: 700;
+    margin: 3rem auto;
+    color: #333;
+    letter-spacing: -0.025em;
+    font-size: 2rem;
+}

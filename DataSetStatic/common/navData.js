@@ -47,7 +47,7 @@ export const headerMiddleData = {
 export const mainNavItems = {
     mainnavLinks : [
         {title:"Home", path:"/"},
-        {title:"Seller List", path:"/seller-list"},
+        {title:"Seller List", path:"/sellers"},
         {title:"Seller Store", path:"/seller-store"},
         {title:"Category", path:"/category"},
         {title:"Shop", path:"/shop"},
