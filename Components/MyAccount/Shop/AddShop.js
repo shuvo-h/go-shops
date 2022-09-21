@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import csc from 'countries-states-cities';
 
 const socialLinksInitial = [
     {name:"facebook",url:"",placeholder:"Insert facebook URL"},
@@ -27,14 +28,31 @@ const AddShop = () => {
     const [shippingMethods,setShippingMethods] = useState([]);
     const [shopInfo,setShopInfo] = useState({address:{},store_location:{}});
     const [isStoreLoading,setIsStoreLoading] = useState(false);
-console.log(user);
-    
+    const categories = useSelector(state=>state.Home.categories);
+// console.log(socialLinks);
+    // auto update city state and country
+    const countries = csc.getAllCountries();
+    const [availableStates,setAvailableStates] = useState([]);
+    const [availableCities,setAvailableCities] = useState([]);
+    // get list of available states,cities of a country
+    useEffect(()=>{
+        // find available states
+        const countryID = countries.find(ct=>ct.name === shopInfo.address.country);
+        const states = countryID?.id ?  csc.getStatesOfCountry(countryID?.id) : [];
+        setAvailableStates(states);
+
+        // find available cities
+        const stateID = availableStates.find(state=>state.name === shopInfo.address.state);
+        const cities = stateID?.id ?  csc.getCitiesOfState(parseInt(stateID.id)) : [];
+        setAvailableCities(cities);
+    },[shopInfo.address.country,shopInfo.address.state])
+
     const onChangeShopInfo = (e,actionType) =>{
         switch (actionType) {
             case "address":
                 setShopInfo(pre=>{
                     const tempInfo = {...pre};
-                    tempInfo['address'][e.target.name] = e.target.value;
+                    tempInfo['address'][e.target.name] = e.target.value === 'all' ? "" : e.target.value;
                     return tempInfo;
                 })
                 break;
@@ -96,14 +114,14 @@ console.log(user);
             default:
                 setShopInfo(pre=>{
                     const tempInfo = {...pre};
-                    tempInfo[e.target.name] = e.target.value;
+                    tempInfo[e.target.name] = e.target.value === 'all' ? "" : e.target.value;
                     return tempInfo;
                 })
                 break;
         }
     }
 
-
+    
     const handleStoreSubmit = (e) =>{
         e.preventDefault();
         setIsStoreLoading(true);
@@ -112,12 +130,12 @@ console.log(user);
             tempH[el[0][1]] = `${el[1][1]} - ${el[2][1]}`;
             return tempH;
         }).map(item=>Object.entries(item)[0])
-
+        // make socila profile url inti arrray
         const newStore = {
             ...shopInfo,
             shipping_method: shippingMethods,
-            // opening_hours: openingHours
             opening_hours: Object.fromEntries(openingTimeOrg),
+            social_profile: Object.fromEntries(socialLinks.map(link =>[link.name,link.url])),
             owner: user._id
         }
         
@@ -131,7 +149,7 @@ console.log(user);
             console.log(data);
             if (data?.data?._id) {
                 alert("Store added successfully!");
-                router.push("/my-account")
+                // router.push("/my-account")
             }else{
                 if (data.error) {
                     alert("Something went wrong. Please try again");
@@ -143,6 +161,9 @@ console.log(user);
             alert(err.message);
         })
     }
+
+console.log(shopInfo);
+
     return (
         <div>
             <h2>Add a Shop</h2>
@@ -161,10 +182,14 @@ console.log(user);
                         <input onChange={(e)=>onChangeShopInfo(e)} name='brand' type="url" placeholder='Brand Logo URL' />
                     </div>
                     <div>
-                        <div>
-                            <p>Location:</p>
-                            <input onChange={(e)=>onChangeShopInfo(e,"address")} name='location' type="text" placeholder='Location of the Shop' />
-                        </div>
+                        <p>Category</p>
+                        <select onChange={(e)=>onChangeShopInfo(e)} name='category' id="" defaultValue={"all"}>
+                            <option value="all">Choose a category</option>
+                            {categories.map(ctg=><option value={ctg._id} key={ctg._id}>{ctg.category}</option>)}
+                        </select>
+                        {/* <input onChange={(e)=>onChangeShopInfo(e)} name='category' type="url" placeholder='Brand Logo URL' /> */}
+                    </div>
+                    <div>
                         <div>
                             <p>Phone:</p>
                             <input  onChange={(e)=>onChangeShopInfo(e,"address")} name='phone'  type="text" placeholder='Shop phone number' />
@@ -173,8 +198,43 @@ console.log(user);
                             <p>Email:</p>
                             <input  onChange={(e)=>onChangeShopInfo(e,"address")} name='contact_email' type="email" placeholder='Shop email address' />
                         </div>
+                        <div>
+                            <p>Road:</p>
+                            <input onChange={(e)=>onChangeShopInfo(e,"address")} name='road' type="text" placeholder='Location of the Shop' />
+                        </div>
+                        <div>
+                            <p>Country:</p>
+                            <select onChange={(e)=>onChangeShopInfo(e,"address")} name="country" id="">
+                                <option value="all" >Choose country...</option>
+                                {
+                                    countries.map(country => <option value={country.name} key={country.id}>{country.name}</option>)
+                                }
+                            </select>
+                        </div>
+                        <div>
+                            <p>State:</p>
+                            <select onChange={(e)=>onChangeShopInfo(e,"address")} name="state" id="">
+                                <option value="all" >Choose state...</option>
+                                {
+                                    availableStates.map(state => <option value={state.name} key={state.id}>{state.name}</option>)
+                                }
+                            </select>
+                        </div>
+                        <div>
+                            <p>City:</p>
+                            <select onChange={(e)=>onChangeShopInfo(e,"address")} name="city" id="">
+                                <option value="all" >Choose state...</option>
+                                {
+                                    availableCities.map(city => <option value={city.name} key={city.id}>{city.name}</option>)
+                                }
+                            </select>
+                        </div>
+                        <div>
+                            <p>ZIP:</p>
+                            <input onChange={(e)=>onChangeShopInfo(e,"address")} name='zip' type="text" placeholder='Country of the Shop' />
+                        </div>
                     </div>
-                    <div>
+                    <div style={{display:"flex"}}>
                         {
                             socialLinks.map(social =><div key={social.name}>
                                 <p>{social.name}</p>
@@ -183,7 +243,7 @@ console.log(user);
                         }
                     </div>
                     
-                    <div>
+                    <div style={{display:"flex"}}>
                         {
                             openingHours.map(dayInfo =><div key={dayInfo.day}>
                                 <p>{dayInfo.day}</p>

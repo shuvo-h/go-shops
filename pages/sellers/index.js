@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MainLayout from '../Components/MainLayout/MainLayout';
-import SellerCards from '../Components/SellerList/SellerCards';
-import SellerFilterNav from '../Components/SellerList/SellerFilterNav';
-import { productStaticCategory } from '../DataSetStatic/common/productCategories';
-import { seller_pageMeta } from '../DataSetStatic/sellersData/sellerPageData';
-import usePagination from '../hooks/usePagination/usePagination';
-import { setCategoriesInHome } from '../redux/slices/HomeSlice';
-import { getProductCategories } from '../utils/client_utils/productsUtils/productUtils';
+import MainLayout from '../../Components/MainLayout/MainLayout';
+import SellerCards from '../../Components/SellerList/SellerCards';
+import SellerFilterNav from '../../Components/SellerList/SellerFilterNav';
+import { productStaticCategory } from '../../DataSetStatic/common/productCategories';
+import { seller_pageMeta } from '../../DataSetStatic/sellersData/sellerPageData';
+import usePagination from '../../hooks/usePagination/usePagination';
+import { setCategoriesInHome } from '../../redux/slices/HomeSlice';
+import { getProductCategories } from '../../utils/client_utils/productsUtils/productUtils';
 
 const Sellers = ({categories}) => {
     const dispatch = useDispatch();
     const {user,login_status,login_err} = useSelector(state =>state.User);
-    const {displayPageNumbers,setSearchQuery, searchQuery,totalPages, queryData, totalCount} = usePagination("/api/users");
+    const {displayPageNumbers,setSearchQuery, setCurrentPage,searchQuery,totalPages, queryData, totalCount,pageSize,currentPage} = usePagination("/api/shops");
 
-    console.log(totalPages, queryData, totalCount);
+    console.log(searchQuery);
 
     useEffect(()=>{
         dispatch(setCategoriesInHome(categories))
@@ -27,8 +27,8 @@ const Sellers = ({categories}) => {
                     home &gt; Seller &gt; Sore List
                 </div>
                 <div style={{display:"grid", gridTemplateColumns:"250px 1fr", gap:"50px", margin:"50px auto"}}>
-                    <SellerFilterNav categories={categories} setSelectOption={setSearchQuery} selectOption={searchQuery}></SellerFilterNav>
-                    <SellerCards sellers={queryData} displayPageNumbers={displayPageNumbers}></SellerCards>
+                    <SellerFilterNav categories={categories} setSelectOption={setSearchQuery} setCurrentPage={setCurrentPage} selectOption={searchQuery}></SellerFilterNav>
+                    <SellerCards sellers={queryData} setSelectOption={setSearchQuery} displayPageNumbers={displayPageNumbers} totalCount={totalCount}pageSize={pageSize}currentPage={currentPage}></SellerCards>
                 </div>
             </section>
         </MainLayout>

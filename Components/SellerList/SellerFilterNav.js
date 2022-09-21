@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import useDebounce from '../../hooks/useDebaounce/useDebounce';
 import { getFilteredSellers } from '../../utils/client_utils/sellerUtils/getSellers';
 
-const SellerFilterNav = ({categories,setSelectOption,selectOption}) => {
+const SellerFilterNav = ({categories,setSelectOption,setCurrentPage,selectOption}) => {
     
     const countries = csc.getAllCountries();
     const [availableStates,setAvailableStates] = useState([]);
@@ -16,6 +16,8 @@ const SellerFilterNav = ({categories,setSelectOption,selectOption}) => {
 
     const selectOptionHandler = (e) =>{
         // console.log(e.target.value);
+        // set the current page always 1 when change any select property
+        setCurrentPage(1);
         switch (e.target.name) {
             case "country":
                 setSelectOption(prev =>{
@@ -38,7 +40,7 @@ const SellerFilterNav = ({categories,setSelectOption,selectOption}) => {
             default:
                 setSelectOption(prev =>{
                     const temp = {...prev};
-                    temp[e.target.name] = e.target.value;
+                    temp[e.target.name] = e.target.value === 'all' ? "" : e.target.value;
                     return temp;
                 })
                 break;
@@ -59,6 +61,7 @@ const SellerFilterNav = ({categories,setSelectOption,selectOption}) => {
         setAvailableCities(cities);
     },[selectOption.country,selectOption.state])
     
+    
     return (
         <div>
             <div>
@@ -70,7 +73,7 @@ const SellerFilterNav = ({categories,setSelectOption,selectOption}) => {
                     <select onChange={(e)=>selectOptionHandler(e)} name="category" id="" defaultValue={"all"}>
                         <option value="all" >Choose category...</option>
                         {
-                            categories.map(ctg => <option value={ctg.category}  key={ctg._id}>{ctg.category}</option>)
+                            categories.map(ctg => <option value={ctg._id}  key={ctg._id}>{ctg.category}</option>)
                         }
                     </select>
                 </div>

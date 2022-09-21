@@ -1,5 +1,28 @@
 import mongoose  from "mongoose";
 
+const socialProfileLinkType = new mongoose.Schema({
+    facebook: {
+        type: String,
+        message:"Link must be string"
+    },
+    twitter: {
+        type: String,
+        message:"Link must be string"
+    },
+    linkedIn: {
+        type: String,
+        message:"Link must be string"
+    },
+    youtube: {
+        type: String,
+        message:"Link must be string"
+    },
+    Instagram: {
+        type: String,
+        message:"Link must be string"
+    },
+})
+
 const shopSchema = new mongoose.Schema(
     {
         shop_name: {
@@ -17,8 +40,13 @@ const shopSchema = new mongoose.Schema(
             unique: [true, "URL must be unique"],
             minLength: [1, "URL must be at least 1 characteres."],
         },
+        category:{
+            type: mongoose.Types.ObjectId,
+            ref:"Categories",
+            required: [true, 'Category must be selected']
+        },
         address:{
-            location: {
+            road: {
                 type: String,
                 required: [true, "Please provide your shop location"], 
                 trim: true, 
@@ -44,7 +72,7 @@ const shopSchema = new mongoose.Schema(
                 required: [true, "Please provide your state"], 
                 trim: true, 
                 minLength: [3, "State must be at least 3 characteres."],
-                maxLength: [20, "State is too large."],
+                maxLength: [50, "State is too large."],
             },
             country: {
                 type: String,
@@ -77,11 +105,7 @@ const shopSchema = new mongoose.Schema(
             require: [true,"Brand name for the shop is required"]
         },
         social_profile:{
-            facebook: String,
-            twitter: String,
-            linkedIn: String,
-            youtube: String,
-            Instagram: String,
+            type: socialProfileLinkType,
         },
         opening_hours:{
             saturday: String, 
@@ -107,6 +131,12 @@ const shopSchema = new mongoose.Schema(
                 type: mongoose.Types.ObjectId,
                 ref:"Users",
                 required: [true, 'Shop must belong to an user']
+        },
+        review:{
+            type: Number,
+            default: 0,
+            min: [0, "review can't be negative"],
+            max: [5, "review can't be more than 5"],
         }
     },
     {
@@ -114,6 +144,12 @@ const shopSchema = new mongoose.Schema(
     }
 )
 
+// add default review before adding a shop
+shopSchema.pre("save", async function(next){
+    // add review as 0 in initially
+    this.review = 0;
+    next();
+})
 const ShopsModel = mongoose.models.Shops || mongoose.model("Shops",shopSchema);
 
 export default ShopsModel;

@@ -5,7 +5,7 @@ import { login_pageMeta } from '../DataSetStatic/authData/authData';
 import LoaderSquareCombine from '../Components/common/Loader/LoaderSquareCombine/LoaderSquareCombine';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import { fetchUserLogin, userCookieName } from '../redux/slices/LoginSlice';
+import { fetchLoginStatus, fetchUserLogin, userCookieName } from '../redux/slices/LoginSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -32,10 +32,11 @@ const Login = () => {
     const handleLogin = e =>{
         e.preventDefault();
         dispatch(fetchUserLogin(userInfo));
+        dispatch(fetchLoginStatus(true));
         
     }
 
-
+    console.log(login_status);
     return (
         <MainLayout pageMeta={login_pageMeta}>
             <section className={`baseContainer ${authST.login_container}`}>

@@ -26,6 +26,7 @@ const PrivateRoute = ({children}) => {
     if (userInfo.login_status) {
         return <LoaderSquareCombine></LoaderSquareCombine>
     }
+    // if router.push() get error for instance, keep it in useEffect to wait for the component unmount
     if (!userInfo.user.token) {
         router.push("/login");
         // return <section>fdgfg</section>

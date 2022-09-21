@@ -15,16 +15,25 @@ export const schemaErrorFormatter = error =>{
 export const schemaErrorFormatterNested = schemaError =>{
     let formatedErrors = {};
 
-    Object.keys(schemaError.errors).forEach((key) => {
+    // format duplicate key error
+    if (schemaError.code === 11000) {
+        Object.entries(schemaError.keyValue).forEach(err =>{
+            formatedErrors[err[0]] = `${err[0]} already exist as ${err[1]}. Please provide a unique value.`
+        })
+        return formatedErrors
+    }
+
+     // format schema validate error
+    Object.keys(schemaError?.errors).forEach((key) => {
         const nestedKey = key.split(".");
         switch (nestedKey.length) {
             case 2:
                 formatedErrors[nestedKey[0]] =  formatedErrors[nestedKey[0]] ? {... formatedErrors[nestedKey[0]]} : {};
-                formatedErrors[nestedKey[0]][nestedKey[1]] = schemaError.errors[key].message;
+                formatedErrors[nestedKey[0]][nestedKey[1]] = schemaError?.errors[key]?.message;
                 break;
         
             default:
-                formatedErrors[key] = schemaError.errors[key].message;
+                formatedErrors[key] = schemaError?.errors[key]?.message;
                 break;
         }
     });

@@ -33,7 +33,9 @@ export const UserSlice = createSlice({
     loginUser: (state,{payload}) => {
         state.categories = payload;
     },
-    
+    fetchLoginStatus: (state,{payload}) =>{
+        state.login_status = payload;
+    }
   },
   extraReducers: (builder)=>{
     builder.addCase(fetchUserLogin.pending,(state,{payload})=>{
@@ -41,6 +43,7 @@ export const UserSlice = createSlice({
         state.login_err = "";
     })
     builder.addCase(fetchUserLogin.fulfilled,(state,{payload})=>{
+        console.log(payload);
         if (!payload.error) {
             state.user = payload.data;
             Cookies.set(userCookieName,JSON.stringify(payload.data));
@@ -60,6 +63,6 @@ export const UserSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { loginUser, } = UserSlice.actions
+export const { loginUser, fetchLoginStatus} = UserSlice.actions
 
 export default UserSlice.reducer;

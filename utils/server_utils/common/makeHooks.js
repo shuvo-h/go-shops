@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export const makeSlugify = str =>str
+export const makeSlugify = (str="") =>str
     ?.toLowerCase()
     ?.trim()
     ?.replace(/[^\w\s-]/g, '')

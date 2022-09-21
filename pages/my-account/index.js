@@ -5,8 +5,25 @@ import RightViewArea from '../../Components/myAccountComponents/RightViewArea';
 import SideNav from '../../Components/myAccountComponents/SideNav';
 import { my_account_pageMeta } from '../../DataSetStatic/HomePage/data_my_account';
 import PrivateRoute from '../../Components/common/privateRoute/PrivateRoute';
+import { useSelector } from 'react-redux';
+import UnAuthLayout from '../../Components/common/UnAuthLayout/UnAuthLayout';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const MyAccount = () => {
+    // const router = useRouter()
+    // const {user,login_status,login_err} = useSelector(state =>state.User);
+    // console.log(user);
+    // useEffect(()=>{
+    //     if (!login_status && !user.token) {
+    //         router.replace("/login");
+    //     }
+    // },[])
+
+    // if (login_status) {
+    //     return <UnAuthLayout></UnAuthLayout>
+    // }
+
     return (
         <MainLayout pageMeta={my_account_pageMeta}>
             <PrivateRoute>

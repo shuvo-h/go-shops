@@ -45,7 +45,7 @@ export default function Home({categories,topCategories}) {
 
 
 export const getStaticProps = async(context) =>{
-  console.log("ok fu");
+  // console.log("ok fu");
   // get categories from self API
   const categoriesRes = await getProductCategories();
   // get categories from static file 

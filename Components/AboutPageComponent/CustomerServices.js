@@ -7,11 +7,11 @@ const CustomerServices = () => {
     return (
         <div>
             <h1>We Provide Continuous & Kind Service for Customers</h1>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)"}}>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"1rem"}}>
                 <div>
                     {
                         customerStaticSevices.map((service,idx) => <div key={service.service_name}>
-                            <h3 onClick={()=>setActiveService(`${idx}-${service.service_name}`)} style={{ display:"flex",cursor:"pointer"}}>{service.service_name}  <span>{activeService === `${idx}-${service.service_name}` ? "-" : "+"}</span></h3>
+                            <h3 onClick={()=>setActiveService(`${idx}-${service.service_name}`)} style={{ display:"flex",justifyContent:"space-between",cursor:"pointer"}}>{service.service_name}  <span>{activeService === `${idx}-${service.service_name}` ? "-" : "+"}</span></h3>
                             <div style={{height:activeService === `${idx}-${service.service_name}` ? "auto" : "0", overflow:"hidden"}}>
                                 <p>{service.description}</p>
                             </div>

@@ -48,7 +48,7 @@ export const mainNavItems = {
     mainnavLinks : [
         {title:"Home", path:"/"},
         {title:"Seller List", path:"/sellers"},
-        {title:"Seller Store", path:"/seller-store"},
+        {title:"Seller Store", path:"/sellers"},
         {title:"Category", path:"/category"},
         {title:"Shop", path:"/shop"},
         {title:"Product", path:"/product"},

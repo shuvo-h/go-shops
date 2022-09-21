@@ -28,3 +28,28 @@ export const customerStaticSevices = [
         description:"Lorem ipsum dolor sit eiusamet, consectetur adipiscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Venenatis tell us in metus vulputate eu scelerisque felis. Vel pretium vulp."
     },
 ]
+
+
+export const counterStaticData = [
+    {
+        name:"Products for Sale",
+        count: 1452,
+        unit:"K+",
+        symbol:"",
+        text:"Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+    },
+    {
+        name:"Products for Sale 2",
+        count: 14,
+        unit:"K+",
+        symbol:"$",
+        text:"Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+    },
+    {
+        name:"Products for Sale 3",
+        count: 2365,
+        unit:"M+",
+        symbol:"",
+        text:"Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+    },
+]
