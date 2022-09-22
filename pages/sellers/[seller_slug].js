@@ -3,13 +3,14 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import MainLayout from '../../Components/MainLayout/MainLayout';
 import ShopBanner from '../../Components/SellerShopComponents/ShopBanner';
+import ShopDIsplayArea from '../../Components/SellerShopComponents/ShopDIsplayArea';
 import ShopSideNav from '../../Components/SellerShopComponents/ShopSideNav';
 import { seller_details_pageMeta } from '../../DataSetStatic/sellersData/sellerSlug_detailsData';
 import { setCategoriesInHome } from '../../redux/slices/HomeSlice';
 import { getProductCategories } from '../../utils/client_utils/productsUtils/productUtils';
 
-const SellerSingleShop = ({shop,categories}) => {
-    console.log(shop,categories);
+const SellerSingleShop = ({shop,categories,products}) => {
+    console.log(shop,categories,products);
     const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -24,7 +25,7 @@ const SellerSingleShop = ({shop,categories}) => {
                 </section>
                 <section style={{display:"grid", gridTemplateColumns:"250px 1fr"}}>
                     <ShopSideNav categories={categories} shop={shop}></ShopSideNav>
-                    <aside>shop products</aside>
+                    <ShopDIsplayArea products={products}></ShopDIsplayArea>
                 </section>
             </section>
         </MainLayout>
@@ -41,12 +42,18 @@ export const getServerSideProps = async(context) =>{
     try {
         // get categories
         const categories = await getProductCategories();
+
+        // get shop details
         const shopRes = await fetch(`${process.env.PROJECT_BASE_URI}/api/shops/shop/${params.seller_slug}`);
         const shopData = await shopRes.json();
+
+        // get product list of this shop by ID
+        const products = await fetch(`${process.env.PROJECT_BASE_URI}/api/products/${shopData.data?._id}`).then(res=>res.json());
+
         // console.log(shopData);
         if (!shopData.error?.status) {
             return {
-                props:{shop: shopData.data,categories}
+                props:{shop: shopData.data,categories,products}
             }
         }else{
             return {

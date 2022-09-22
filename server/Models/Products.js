@@ -1,5 +1,14 @@
 import mongoose, { mongo } from "mongoose";
 
+const priceSchema = new mongoose.Schema({
+    price:{
+        type:Number, 
+        required: [true,"Price is required"],
+        min:[0,"Price can't be negative"]
+    },
+    date: Date
+})
+
 const productSchema = new mongoose.Schema(
     {
         title:{type: String, trim: true, required: [true,"Title is required"]},
@@ -11,7 +20,9 @@ const productSchema = new mongoose.Schema(
             // react_icon: {type: String, required: true}
         },
         img:[{type: String, required: true}],
-        price:{type: Number, required: [true,"Price is required"],min:[0,"Price can't be negative"]},
+        price:{
+            type: [priceSchema]
+        },
         brand:{type: String, required: [true,"Brand name is required"]},
         rating:{type: Number, required: true,default:0},
         reviewCount: {type: Number, required: true,default:0},

@@ -95,6 +95,30 @@ const AddProduct = () => {
                     e.target.value = "";
                 }
                 break;
+            case "price":
+                setNewProductInfo(pre=>{
+                    const tempInfo = {...pre};
+                    const isExistPrice = tempInfo[e.target?.name]?.length ? true: false;
+                    if (isExistPrice) {
+                        tempInfo[e.target?.name][0].price = parseFloat(e.target?.value);
+                    }else{
+                        tempInfo[e.target?.name] = [{price: parseFloat(e.target?.value), date:""}]
+                    }
+                    return tempInfo;
+                })
+                break;
+            case "date":
+                setNewProductInfo(pre=>{
+                    const tempInfo = {...pre};
+                    const isExistDate = tempInfo['price']?.length ? true: false;
+                    if (isExistDate) {
+                        tempInfo['price'][0].date =e.target?.value;
+                    }else{
+                        tempInfo['price'] = [{date: e.target?.value, price:0}]
+                    }
+                    return tempInfo;
+                })
+                break;
         
             default:
                 setNewProductInfo(pre=>{
@@ -211,6 +235,10 @@ const AddProduct = () => {
                     <div>
                         <p>Price:</p>
                         <input onChange={e=>onChangeProductInfo(e)} name="price" type="number" placeholder='Write title' />
+                    </div>
+                    <div>
+                        <p>Active from:</p>
+                        <input onChange={e=>onChangeProductInfo(e)} name="date" type="date"  placeholder='Write title' />
                     </div>
                     <div>
                         <p>Brand:</p>

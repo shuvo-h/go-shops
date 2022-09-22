@@ -93,4 +93,31 @@ export const calculatePaginationFields = (mainQuery) =>{
     return queries;
 }
 
-
+/*
+const db = {
+    price: [{priceValue:10},{priceValue:18},]
+}
+    mainQuery = req.query,
+    mainKeys = ['price'],
+    fixindex = 0,
+    nestedKeys = 'priceValue'
+*/
+// filters["price.0.price"] =  {$gt:500 }
+export const filterOperator_specificIdxEl_fromArrOfObj = (mainQuery,mainKeys,fixIndex,nestedKey) =>{
+    const reqQuery = {...mainQuery};
+    // delete unnecessary query except operator related queries
+    Object.keys(reqQuery).forEach(key=> mainKeys.indexOf(key) < 0 && delete reqQuery[key]);
+    
+    // convert operator filter command
+    const operatorFilterArr = Object.entries(reqQuery).map(operatorObj=>{
+        const tempQueries = operatorObj[1].split(",").map(opEl=>{
+            const filterKeyVal =opEl.split("~")
+            return {[`$${filterKeyVal[0]}`]:filterKeyVal[1]}
+        })
+        return {[`${operatorObj[0]}.${fixIndex}.${nestedKey}`]:Object.assign({},...tempQueries)} 
+        
+    })
+    // convert array of obj to single obj
+    const operatorsFilter = Object.assign({},...operatorFilterArr);
+    return operatorsFilter;
+}
