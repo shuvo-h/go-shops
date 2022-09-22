@@ -25,7 +25,7 @@ const SellerSingleShop = ({shop,categories,products}) => {
                 </section>
                 <section style={{display:"grid", gridTemplateColumns:"250px 1fr"}}>
                     <ShopSideNav categories={categories} shop={shop}></ShopSideNav>
-                    <ShopDIsplayArea products={products}></ShopDIsplayArea>
+                    <ShopDIsplayArea shop={shop} products={products} ></ShopDIsplayArea>
                 </section>
             </section>
         </MainLayout>

@@ -1,10 +1,14 @@
 import React from 'react';
 
-const ShopPolicy = () => {
+const ShopPolicy = ({shop}) => {
     return (
         <div>
-            Receive input Data for Shipping Policy, Refund Policy, Cancellation / Return / Exchange Policy
-            <h4>Then show here after taking from user input</h4>
+           <h4>Shipping Policy</h4>
+           <p>{shop.shipping_policy}</p>
+           <h4>Refund Policy</h4>
+           <p>{shop.refund_policy}</p>
+           <h4>Cancellation / Return / Exchange Policy</h4>
+           <p>{shop.cancel_policy}</p>
         </div>
     );
 };

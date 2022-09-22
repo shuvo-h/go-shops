@@ -276,6 +276,22 @@ console.log(shopInfo);
                         <input onChange={(e)=>onChangeShopInfo(e,"mapLocation")} name='lang'  type="number" placeholder='longitude'/>
                     </div>
                     <div>
+                        <p>About The Shop</p>
+                        <textarea onChange={(e)=>onChangeShopInfo(e)}  name="description" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <p>Shipping Policy</p>
+                        <textarea onChange={(e)=>onChangeShopInfo(e)}  name="shipping_policy" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <p>Refund Policy</p>
+                        <textarea onChange={(e)=>onChangeShopInfo(e)}  name="refund_policy" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <p>Cancellation / Return / Exchange Policy</p>
+                        <textarea onChange={(e)=>onChangeShopInfo(e)}  name="cancel_policy" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
                         <button type='submit'>Save</button>
                     </div>
                 </form>

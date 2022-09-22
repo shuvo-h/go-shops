@@ -137,7 +137,27 @@ const shopSchema = new mongoose.Schema(
             default: 0,
             min: [0, "review can't be negative"],
             max: [5, "review can't be more than 5"],
-        }
+        },
+        description:{
+            type: String,
+            minLength: [50,"Description must be atleast 50 characters"],
+            required:[true,"Description is required"]
+        },
+        shipping_policy:{
+            type: String,
+            minLength: [50,"Shipping policy must be atleast 50 characters"],
+            required:[true,"Shipping policy is required"]
+        },
+        refund_policy:{
+            type: String,
+            minLength: [50,"Refund policy must be atleast 50 characters"],
+            required:[true,"Refund policy is required"]
+        },
+        cancel_policy:{
+            type: String,
+            minLength: [50,"Cancel policy must be atleast 50 characters"],
+            required:[true,"Cancel policy is required"]
+        },
     },
     {
         timestamps: true

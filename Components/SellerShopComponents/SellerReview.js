@@ -1,11 +1,18 @@
 import React from 'react';
 
-const SellerReview = () => {
+const SellerReview = ({shop}) => {
+
     return (
         <div>
-            <h4>Write a review</h4>
-            <h4>Average reviews</h4>
-            <h4>Single reviews map</h4>
+            <div>
+                <h4>Write a review</h4>
+            </div>
+            <div>
+                <h4>Average reviews</h4>
+            </div>
+            <div>
+                <h4>Single reviews map</h4>
+            </div>
         </div>
     );
 };

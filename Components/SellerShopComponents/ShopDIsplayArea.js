@@ -6,9 +6,10 @@ import SellerProductCard from './SellerProductCard';
 import SellerReview from './SellerReview';
 import ShopPolicy from './ShopPolicy';
 
-const ShopDIsplayArea = ({products}) => {
+const ShopDIsplayArea = ({shop,products}) => {
     const [viewNav,setViewNav] = useState(navSubSellerTopData[0].path);
 
+    
     return (
         <div>
             <NavSellerSubTop setViewNav={setViewNav}></NavSellerSubTop>
@@ -17,11 +18,10 @@ const ShopDIsplayArea = ({products}) => {
             </div>
             <div>
                 {navSubSellerTopData[0].path === viewNav ? <SellerProductCard productlist={products?.data}></SellerProductCard> :<></>}
-                {navSubSellerTopData[1].path === viewNav ? <SellerAbout></SellerAbout> :<></>}
-                {navSubSellerTopData[2].path === viewNav ? <ShopPolicy></ShopPolicy> :<></>}
-                {navSubSellerTopData[3].path === viewNav ? <SellerReview></SellerReview> :<></>}
+                {navSubSellerTopData[1].path === viewNav ? <SellerAbout  shop={shop}></SellerAbout> :<></>}
+                {navSubSellerTopData[2].path === viewNav ? <ShopPolicy shop={shop}></ShopPolicy> :<></>}
+                {navSubSellerTopData[3].path === viewNav ? <SellerReview shop={shop}></SellerReview> :<></>}
             </div>
-            <div>Pagination</div>
         </div>
     );
 };
