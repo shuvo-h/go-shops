@@ -31,7 +31,7 @@ const ShopSideNav = ({categories,shop}) => {
                 <h4>Store Time</h4>
                 <div>
                     {
-                        Object.entries(shop.opening_hours).map(day=><div style={{display:"grid", gridTemplateColumns:"100px 150px"}} key={day[0]}>
+                        shop.opening_hours && Object.entries(shop.opening_hours)?.map(day=><div style={{display:"grid", gridTemplateColumns:"100px 150px"}} key={day[0]}>
                             <div>{day[0]}</div>
                             <div>{day[1]}</div>
                         </div>)
@@ -42,7 +42,7 @@ const ShopSideNav = ({categories,shop}) => {
                 <h4>Shipping Rules</h4>
                 <div>
                     {
-                        shop.shipping_method.map((method,idx)=><p style={{margin:"5px auto"}} key={`method-${idx}`}> &gt; {method}</p>)
+                        shop.shipping_method?.map((method,idx)=><p style={{margin:"5px auto"}} key={`method-${idx}`}> &gt; {method}</p>)
                     }
                 </div>
             </div>

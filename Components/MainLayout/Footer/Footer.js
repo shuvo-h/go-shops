@@ -1,6 +1,4 @@
 import React from 'react';
-import { AiOutlineMail } from 'react-icons/ai';
-import { IconContext } from "react-icons";
 import layoutST from "../mainLayout.module.css";
 import { getMasterCard } from '../../../utils/client_utils/svgIcons/masterCard';
 import { getDoiscoverCard } from '../../../utils/client_utils/svgIcons/discoverCard';
@@ -16,11 +14,10 @@ const Footer = () => {
     const {logo} = headerMiddleData;
     return (
         <div>
-            {/* <div className={`centerEL ${layoutST.footer_subscrib}`}> */}
             <div style={{backgroundColor:"#336699"}}>
                 <div className={`baseContainer centerEL ${layoutST.footer_subscrib}`}>
                     <div className={`verticalCenterEL`}>
-                        <IconContext.Provider value={{ size:"40",color: "white", className: "global-class-name" }}><AiOutlineMail /></IconContext.Provider>
+                        {getSVGicons(icons.emailIcon,20,20)}
                         <div>
                             <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
                             <p>Get all the latest information on Events, Sales and Offers.</p>

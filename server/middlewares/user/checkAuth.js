@@ -10,9 +10,9 @@ export const checkAuthLogin = async(req,res,next) =>{
         // decode the token
         const decodedUser = await verifyToken(req.headers.authorization?.split(" ")[1]);
         if (decodedUser.email) {
-            db.connect();
+            await db.connect();
             const dbUser = await UsersModel.findOne({email:decodedUser.email},{_id:0,email:1})
-            db.disconnect();
+            await db.disconnect();
             
             if (dbUser.email === decodedUser.email) {
                 req.decodedUser = decodedUser;

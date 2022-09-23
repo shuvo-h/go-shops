@@ -7,10 +7,14 @@ import ShopDIsplayArea from '../../Components/SellerShopComponents/ShopDIsplayAr
 import ShopSideNav from '../../Components/SellerShopComponents/ShopSideNav';
 import { seller_details_pageMeta } from '../../DataSetStatic/sellersData/sellerSlug_detailsData';
 import { setCategoriesInHome } from '../../redux/slices/HomeSlice';
+import CategoryModel from '../../server/Models/CategorySchema';
+import ProductsModel from '../../server/Models/Products';
+import ShopsModel from '../../server/Models/shopSchema';
 import { getProductCategories } from '../../utils/client_utils/productsUtils/productUtils';
+import db from '../../utils/server_utils/db/db';
 
 const SellerSingleShop = ({shop,categories,products}) => {
-    console.log(shop,categories,products);
+    // console.log(shop,categories,products);
     const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -18,7 +22,7 @@ const SellerSingleShop = ({shop,categories,products}) => {
   },[categories?.length])
 
     return (
-        <MainLayout pageMeta={{...seller_details_pageMeta, title:shop.shop_name}}>
+        <MainLayout pageMeta={{...seller_details_pageMeta, title:shop?.shop_name}}>
             <section className='baseContainer'>
                 <section>
                     <ShopBanner shop={shop}></ShopBanner>
@@ -38,30 +42,32 @@ export const getServerSideProps = async(context) =>{
     const {params,req,res,query} = context;
     res.setHeader('Cache-Control','public, s-maxage=10, stale-while-revalidate=59')
     // set cache to improve performance and reduce api request
-    
+
     try {
-        // get categories
-        const categories = await getProductCategories();
-
         // get shop details
-        const shopRes = await fetch(`${process.env.PROJECT_BASE_URI}/api/shops/shop/${params.seller_slug}`);
-        const shopData = await shopRes.json();
+        const {seller_slug} = params;
+        await db.connect();
+        const categories = await CategoryModel.find({}).lean();
+        const shopData = await ShopsModel.findOne({slug:seller_slug}).lean();
 
-        // get product list of this shop by ID
-        const products = await fetch(`${process.env.PROJECT_BASE_URI}/api/products/${shopData.data?._id}`).then(res=>res.json());
-
-        // console.log(shopData);
-        if (!shopData.error?.status) {
-            return {
-                props:{shop: shopData.data,categories,products}
-            }
-        }else{
-            return {
-                redirect:{destination:"/404",permanent:false}
-            }
+        // get products with filter
+        const products = await ProductsModel.find({shop: shopData._id}).lean();
+        // console.log(products);
+        const totalProductsCount = await ProductsModel.countDocuments({shop: shopData._id});
+        const pages = Math.ceil(totalProductsCount/10);
+        await db.disconnect();
+        
+        const productRes = {pages, count: totalProductsCount,data:products};
+        return {
+            props:{shop: JSON.parse(JSON.stringify(shopData)),categories:JSON.parse(JSON.stringify(categories)),products:JSON.parse(JSON.stringify(productRes))}
         }
+        
+        
     } catch (error) {
-        // console.log(error.message);
+        console.log(error);
+        return {
+            props:{shop: [],categories:[],products:{}}
+        }
     }
     
 }

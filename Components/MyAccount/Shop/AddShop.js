@@ -162,7 +162,6 @@ const AddShop = () => {
         })
     }
 
-console.log(shopInfo);
 
     return (
         <div>

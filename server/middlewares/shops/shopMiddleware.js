@@ -61,7 +61,7 @@ export const getAllShopsCtl = async(req,res,next) =>{
         // console.log(filters,queries);
         
         // get the products now
-        db.connect();
+        await db.connect();
         const shops = await ShopsModel.find(filters)
             .populate([{path:"owner",select:"first_name last_name"},{path:"category",select:"-_id category"}])
             // .populate([{path:"owner",select:"first_name last_name"},])
@@ -73,7 +73,7 @@ export const getAllShopsCtl = async(req,res,next) =>{
         const totalShops = await ShopsModel.countDocuments(filters);
         const pages = Math.ceil(totalShops/(queries.limit ? queries.limit : 10));
         console.log("shop found = ",shops.length);
-        db.disconnect();
+        await db.disconnect();
         
         res.json({pages, count: totalShops,data:shops, error:{status:false,messages:{common:""}}});
     } catch (error) {
@@ -86,9 +86,9 @@ export const gerUserSpecificShopsCtl = async(req,res,next) =>{
     // console.log(req.decodedUser,"req.decodedUser");
     try {
         const {email} = req.decodedUser;
-        db.connect();
+        await db.connect();
         const shops = await ShopsModel.find({email}).lean().populate("owner",{_id:0,first_name:1, last_name:1});
-        db.disconnect();
+        await db.disconnect();
         res.json(shops);
     } catch (error) {
         res.status(500).json({error:true,message:error.message, data:{}});
@@ -100,9 +100,9 @@ export const getShopByIDCtl = async(req,res,next) =>{
     const {shop_slug} = req.query;
     
     try {
-        db.connect();
+        await db.connect();
         const shop = await ShopsModel.findOne({slug:shop_slug}).lean();
-        db.disconnect();
+        await db.disconnect();
         res.json({error:{status:false,message:""}, data:shop});
     } catch (error) {
         console.log(error);

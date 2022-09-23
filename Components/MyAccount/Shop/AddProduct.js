@@ -34,7 +34,6 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(docs=>{
-            console.log(docs);
             if (!docs.error) {
                 setExistingShops(docs)
             }
@@ -46,7 +45,6 @@ const AddProduct = () => {
             case "title":
                 const typedFilterTitles = existingTitles.filter(titleEl => titleEl.title.indexOf(e.target.value)>-1);
                 setFilteredExTitles(typedFilterTitles.slice(0,3))
-                console.log(typedFilterTitles);
                 setNewProductInfo(pre=>{
                     const tempInfo = {...pre};
                     // tempInfo['address'][e.target.name] = e.target.value;
@@ -85,7 +83,6 @@ const AddProduct = () => {
                             // console.log("own pro",[...tempInfo[e.target.name],e.target.value]);
                             tempInfo[e.target.name] = [...tempInfo[e.target.name],newImg];
                         }else{
-                            console.log("own nnoot pro");
                             tempInfo[e.target.name] = [newImg];
                         }
                         // remove duplicate
@@ -153,13 +150,11 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
             setAddProductLoading(false);
             if (!data.error.status) {
                 alert("Product added successfull!");
                 // router.push("/login");
             }else{
-                console.log(data.error.message);
                 alert(JSON.stringify(data.error.message))
             }
         })

@@ -8,9 +8,9 @@ const handler = nextHandler();
 // POST API - add a new shop
 handler.get(async(req,res)=>{
     try {
-        db.connect();
+        await db.connect();
         const total = await ShopsModel.find({},{_id:1}).lean();
-        db.disconnect();
+        await db.disconnect();
         res.json({error:{status:false,message:""}, data:{total}});
     } catch (error) {
         console.log(error);

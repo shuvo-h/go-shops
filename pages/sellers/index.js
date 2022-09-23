@@ -14,8 +14,6 @@ const Sellers = ({categories}) => {
     const {user,login_status,login_err} = useSelector(state =>state.User);
     const {displayPageNumbers,setSearchQuery, setCurrentPage,searchQuery,totalPages, queryData, totalCount,pageSize,currentPage} = usePagination("/api/shops");
 
-    console.log(searchQuery);
-
     useEffect(()=>{
         dispatch(setCategoriesInHome(categories))
     },[categories?.length])

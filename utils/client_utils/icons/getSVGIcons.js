@@ -1,3 +1,4 @@
+import { getEmailIcon } from "../svgIcons/commonSVGicons";
 import { getDoiscoverCard } from "../svgIcons/discoverCard";
 import { deliveryTrack, getAccountDetailsIcon, getAddressIcon, getBagIcon, getContactSupportIcon, getDownloadIcon, getHeartIcon, getLogoutIcon, getMoneyBackIcon, getOrderListIcon } from "../svgIcons/ecommerce_Icons";
 import getFBicon from "../svgIcons/getFBicon";
@@ -27,6 +28,7 @@ export const icons = {
     addressIcon: "addressIcon",
     accountDetailsIcon: "acountDetailsIcon",
     heartIcon: "heartIcon",
+    emailIcon: "emailIcon",
 }
 export const getSVGicons = (iconName,width,height) =>{
     switch (iconName) {
@@ -53,6 +55,9 @@ export const getSVGicons = (iconName,width,height) =>{
         case icons.addressIcon:  return getAddressIcon(width,height);
         case icons.accountDetailsIcon:  return getAccountDetailsIcon(width,height);
         case icons.heartIcon:  return getHeartIcon(width,height);
+
+        // common icons
+        case icons.emailIcon:  return getEmailIcon(width,height);
     
         default:
             break;

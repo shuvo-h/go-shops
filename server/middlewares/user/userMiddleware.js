@@ -50,9 +50,9 @@ export const loginUserCtl = async(req,res,next) =>{
     const {email,password} = req.body;
     try {
         // get userinfo
-        db.connect();
+        await db.connect();
         const user = await UsersModel.findOne({email});
-        db.disconnect();
+        await db.disconnect();
         if (user && bcrypt.compareSync(password,user.password)) {
             const userTokenInfo = {
                 _id: user.id, 
@@ -94,10 +94,10 @@ export const getFilteredVendorsCtl = async(req,res,next) =>{
     
     try {
         // get userinfo
-        db.connect();
+        await db.connect();
         const users = await UsersModel.find(addressQuery).skip(page*count).limit(count);
         const totalUsers = await UsersModel.find(addressQuery).count();
-        db.disconnect();
+        await db.disconnect();
         res.status(200).json({error:false,message:"", count:totalUsers,data:users});
     } catch (error) {
         if (error.name === 'ValidationError' || error.code === 11000) {

@@ -17,7 +17,7 @@ const ShopDIsplayArea = ({shop,products}) => {
                 filter view
             </div>
             <div>
-                {navSubSellerTopData[0].path === viewNav ? <SellerProductCard productlist={products?.data}></SellerProductCard> :<></>}
+                {navSubSellerTopData[0].path === viewNav ? <SellerProductCard productlist={products}></SellerProductCard> :<></>}
                 {navSubSellerTopData[1].path === viewNav ? <SellerAbout  shop={shop}></SellerAbout> :<></>}
                 {navSubSellerTopData[2].path === viewNav ? <ShopPolicy shop={shop}></ShopPolicy> :<></>}
                 {navSubSellerTopData[3].path === viewNav ? <SellerReview shop={shop}></SellerReview> :<></>}

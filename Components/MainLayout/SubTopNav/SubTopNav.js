@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import navTopST from "./SubTopNav.module.css";
-import { IconContext } from "react-icons";
-import { BiChevronDown} from 'react-icons/bi';
-import { BsPerson} from 'react-icons/bs';
 import { currencies, languages } from '../../../DataSetStatic/appOperator/appOperator';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrency, setLanguage } from '../../../redux/slices/common/commonSlice';
 import NavLink from "next/link"
 import { navData } from '../../../DataSetStatic/common/navData';
+import { getSVGicons, icons } from '../../../utils/client_utils/icons/getSVGIcons';
 
 const SubTopNav = () => {
     const dispatch = useDispatch();
@@ -27,7 +25,7 @@ const SubTopNav = () => {
                         <li className={navTopST.nav_item}>
                             <div className={`verticalCenterEL ${navTopST.nav_item_width}`}>
                                 {activeCurrency.name}
-                                <IconContext.Provider value={{ size:"17",color: "black", className: "global-class-name" }}><BiChevronDown /></IconContext.Provider>
+                                {getSVGicons(icons.accountDetailsIcon,20,20)}
                             </div>
                             <div className={navTopST.nav_item_expand}>
                                 {
@@ -38,7 +36,7 @@ const SubTopNav = () => {
                         <li className={navTopST.nav_item}>
                             <div className={`verticalCenterEL ${navTopST.nav_item_width}`}>
                                 {activeLanguage.name}
-                                <IconContext.Provider value={{ size:"17",color: "black", className: "global-class-name" }}><BiChevronDown /></IconContext.Provider>
+                                {getSVGicons(icons.accountDetailsIcon,20,20)}
                             </div>
                             <div className={navTopST.nav_item_expand}>
                                 {
@@ -49,7 +47,7 @@ const SubTopNav = () => {
                         <li className={navTopST.nav_item}>|</li>
                         <li className={navTopST.nav_item}>{account.accountTitle}</li>
                         <li className={`${navTopST.nav_item} verticalCenterEL`}>
-                            <IconContext.Provider value={{ size:"17",color: "black", className: "global-class-name" }}><BsPerson /></IconContext.Provider>
+                            {getSVGicons(icons.accountDetailsIcon,20,20)}
                                 <NavLink href={navLinks.login.path}><a className={navTopST.navLink}>{navLinks.login.title}</a></NavLink>
                                  {" "}/{" "}  
                                  <NavLink href={navLinks.register.path}><a className={navTopST.navLink}>{navLinks.register.title}</a></NavLink>

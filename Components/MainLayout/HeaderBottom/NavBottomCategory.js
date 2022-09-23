@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import mainLayoutST from '../mainLayout.module.css';
 import { useSelector } from 'react-redux';
 import NavLink from "next/link"
-import { category_icon, getReactIcon } from '../../../utils/client_utils/icons/getReactIcon';
 import HeadNavSubCategory from './HeadNavSubCategory';
+import { getSVGicons, icons } from '../../../utils/client_utils/icons/getSVGIcons';
 
 
 
@@ -16,7 +16,7 @@ const NavBottomCategory = () => {
         <div className={mainLayoutST.headerBTM_ct_wrapper}>
             <div className='centerEL'>
                 <div className={`${mainLayoutST.headerBTM_ctg} ${mainLayoutST.category_spacing}`}>
-                    {getReactIcon("GrUnorderedList",22)}
+                    {getSVGicons(icons.accountDetailsIcon)}
                     BROWSE CATEGORIES
                 </div>
             </div>
@@ -29,7 +29,7 @@ const NavBottomCategory = () => {
                             <div>
                                 <NavLink href={"/"}>
                                     <a className={mainLayoutST.category_spacing}>
-                                        {getReactIcon(mainCtg.icon.toString(),22)} 
+                                        {getSVGicons(icons.accountDetailsIcon)} 
                                         {mainCtg.category} {">"}
                                     </a>
                                 </NavLink>

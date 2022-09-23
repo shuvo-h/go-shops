@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
-import { BsSearch,BsTelephone } from 'react-icons/bs';
-import { IconContext } from "react-icons";
 import { headerMiddleData } from '../../../DataSetStatic/common/navData';
 import STmainLayout from "../mainLayout.module.css";
 import NavLink from "next/link"
 
 import NavSearch from './NavSearch';
+import { getSVGicons, icons } from '../../../utils/client_utils/icons/getSVGIcons';
 
 const HeaderMiddle = () => {
     const {logo,productCategories,contact,buttonTitles} = headerMiddleData;
@@ -19,7 +18,7 @@ const HeaderMiddle = () => {
                 <NavSearch></NavSearch>
                 <div className={`verticalCenterEL ${STmainLayout.middleNav_contact}`}>
                     <div>
-                        <IconContext.Provider value={{ color: "blue", className: "global-class-name" }}><BsTelephone /></IconContext.Provider>
+                    {getSVGicons(icons.accountDetailsIcon,20,20)}
                     </div>
                     <div>
                         <p>{headerMiddleData.contact.title} <span>or :</span> </p>

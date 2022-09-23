@@ -25,7 +25,7 @@ handler.get(async(req,res)=>{
         const queries = calculatePaginationFields(req.query);
         
         // get the products now
-        db.connect();
+        await db.connect();
         const products = await ProductsModel.find({...filters,shop:shop_id})
             // .populate([{path:"owner",select:"first_name last_name"},{path:"category",select:"-_id category"}]) // no need to popuate any key here
             .skip(queries.skip)
@@ -36,7 +36,7 @@ handler.get(async(req,res)=>{
         
         const totalProductsCount = await ProductsModel.countDocuments({...filters,shop:shop_id});
         const pages = Math.ceil(totalProductsCount/(queries.limit ? queries.limit : 10));
-        db.disconnect();
+        await db.disconnect();
         
         res.json({pages, count: totalProductsCount,data:products, error:{status:false,messages:{common:""}}});
        

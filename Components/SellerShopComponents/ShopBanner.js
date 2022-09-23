@@ -25,15 +25,15 @@ const ShopBanner = ({shop}) => {
                 </div>
                 <div style={{flexGrow:"1"}}>
                     <h4 style={{margin:"4px 0"}}>{shop.shop_name}</h4>
-                    <p style={{margin:"2px 0"}}>{shop.address.road}, {shop.address.city}, {shop.address.state}, {shop.address.country}</p>
-                    <p style={{margin:"2px 0"}}>icon: {shop.address.phone}</p>
-                    <p style={{margin:"2px 0"}}>icon: {shop.address.contact_email}</p>
+                    <p style={{margin:"2px 0"}}>{shop.address?.road}, {shop.address?.city}, {shop.address?.state}, {shop.address?.country}</p>
+                    <p style={{margin:"2px 0"}}>icon: {shop.address?.phone}</p>
+                    <p style={{margin:"2px 0"}}>icon: {shop.address?.contact_email}</p>
                 </div>
                 <div>
                     <button style={{margin:"15px auto", display:"block"}}>INQUIRE</button>
                     <div>
                         {
-                            Object.entries(shop.social_profile ? shop.social_profile : []).map((social,idx)=>{
+                            shop.social_profile && Object.entries(shop.social_profile ? shop.social_profile : []).map((social,idx)=>{
                                 if (social[0].toLocaleLowerCase()==='facebook') {
                                     return <NavLink href={social[1]} key={`social-${idx}`}><a>{getSVGicons(icons.fbIcon,30,30)}</a></NavLink>
                                 }else if (social[0].toLocaleLowerCase()==='twitter') {

@@ -1,7 +1,4 @@
-import { AiOutlineShopping } from 'react-icons/ai';
-import { RiScales3Fill } from 'react-icons/ri';
-import { BsHeart } from 'react-icons/bs';
-import { IconContext } from "react-icons";
+import { getSVGicons, icons } from "../../utils/client_utils/icons/getSVGIcons"
 
 export const navData = {
     welcome_message: "WELCOME TO GOSHOP STORE!",
@@ -29,17 +26,17 @@ export const headerMiddleData = {
         {
             title: "Wishlist",
             // reactIcon: "BsHeart" // must import from react icons in component
-            reactIcon: <IconContext.Provider value={{ size:"20",color: "blue", className: "global-class-name" }}><BsHeart /></IconContext.Provider>
+            reactIcon: getSVGicons(icons.accountDetailsIcon,20,20)
         },
         {
             title: "Compare",
             // reactIcon: "RiScales3Fill" 
-            reactIcon: <IconContext.Provider value={{ size:"20",color: "blue", className: "global-class-name" }}><RiScales3Fill /></IconContext.Provider>
+            reactIcon: getSVGicons(icons.accountDetailsIcon,20,20)
         },
         {
             title: "Cart",
             // reactIcon: "AiOutlineShopping" 
-            reactIcon: <IconContext.Provider value={{ size:"20",color: "blue", className: "global-class-name" }}><AiOutlineShopping /></IconContext.Provider>
+            reactIcon: getSVGicons(icons.accountDetailsIcon)
         },
     ]
 }

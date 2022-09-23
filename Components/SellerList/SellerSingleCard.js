@@ -4,7 +4,7 @@ import NavLink from 'next/link';
 import { Rating } from 'react-simple-star-rating'
 
 const SellerSingleCard = ({seller}) => {
-    console.log(seller);
+    
     return (
         <div style={{border:"1px solid lightgrey", color:"white"}}>
             <div style={{border:"1px solid lightgrey", padding:"1em 1em", backgroundImage:`url(${seller.banner})`, backgroundSize:"100% 100%"}}>

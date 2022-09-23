@@ -14,10 +14,6 @@ const HeadMainPage = ({page_head_meta_info = default_page_head_meta_Props}) => {
             {description && <meta name="description" content={description} />}
             {baseURL && <base href={baseURL}></base>}
 
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"></link>
 
         </Head>
     );

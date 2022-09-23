@@ -10,7 +10,7 @@ export const productInsertToDB = async(req,res) =>{
         req.body.slug = req.body.slug ? makeSlugify(req.body?.slug) : makeSlugify(req.body?.title);
         const newProduct = new ProductsModel(req.body);
         const product = await newProduct.save();
-        db.disconnect();
+        await db.disconnect();
         if (product._id) {
             res.json({data:newProduct,error:{status:false,message:""}})
         }else{
