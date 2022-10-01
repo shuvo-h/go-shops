@@ -121,3 +121,23 @@ export const filterOperator_specificIdxEl_fromArrOfObj = (mainQuery,mainKeys,fix
     const operatorsFilter = Object.assign({},...operatorFilterArr);
     return operatorsFilter;
 }
+
+
+// make search query for specific list of fields 
+// const mainQuery = req.query; const searchKeyList = ["name","description","category"]
+export const searchRegexCMDgenerator = (mainQuery={},searchKeyList=[""]) =>{
+    const searchString= mainQuery.search;
+    if (searchString && searchKeyList.length) {
+        // generate search command
+        const searchCMD = searchKeyList.map(keyEl=>{
+            return {[keyEl]:{$regex:searchString,$options:"ig"}}
+        })
+        // console.log(searchCMD);
+        // {$or:[{title:{$regex:"full pant",$options:"ig"}},{"details.description":{$regex:"full pant",$options:"ig"}}],}
+        return {$or:searchCMD}
+    }else{
+        return {}
+    }
+}
+  
+

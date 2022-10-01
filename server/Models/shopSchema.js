@@ -1,4 +1,4 @@
-import mongoose  from "mongoose";
+import mongoose from "mongoose";
 
 const socialProfileLinkType = new mongoose.Schema({
     facebook: {
@@ -132,12 +132,16 @@ const shopSchema = new mongoose.Schema(
                 ref:"Users",
                 required: [true, 'Shop must belong to an user']
         },
-        review:{
+        review_avg:{
             type: Number,
             default: 0,
             min: [0, "review can't be negative"],
             max: [5, "review can't be more than 5"],
         },
+        reviews:[{
+            type: mongoose.Types.ObjectId,
+            ref: "Reviews"
+        }],
         description:{
             type: String,
             minLength: [50,"Description must be atleast 50 characters"],

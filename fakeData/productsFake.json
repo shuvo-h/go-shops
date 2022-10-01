@@ -1,0 +1,113 @@
+[
+    {
+        "title":"Keyboard RJ487",
+        "slug":"",
+        "category": {
+            "main": "technology",
+            "separator": "top quality",
+            "sub_category": "expensive",
+            "react_icon": "IoShirtOutline"
+        },
+        "img":[
+            "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "https://images.unsplash.com/photo-1574012716378-0ca6f4c18c08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1717&q=80",
+            "https://images.unsplash.com/photo-1561112078-7d24e04c3407?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+            "https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80",
+            "https://images.unsplash.com/photo-1585314614250-d213876625e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
+        ],
+        "price":[{"price":"850","date":"03-25-2022"}],
+        "active_price": 899,
+        "brand":"sumgsung",
+        "model":"RJ487",
+        "quantity": "51",
+        "varity":[
+            {"price":950,"quantity":73,"color":"white","size":"medium"},
+            {"price":780,"quantity":38,"color":"white","size":"medium"},
+            {"price":1150,"quantity":17,"color":"black","size":"large"},
+            {"price":1299,"quantity":15,"color":"black","size":"extra large"},
+            {"price":950,"quantity":2,"color":"white","size":"small"},
+            {"price":850,"quantity":18,"color":"black","size":"small"}
+        ],
+        "shop":"632c6814d6a1002c9b180970",
+        "details":{
+            "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
+            "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],
+            "special_offers": [{"offer_name": "Free Shipping & Return","offer_details": "We offer free shipping for products on orders above 50$ and offer free delivery for all orders in US."},{"offer_name": "Free and Easy Returns","offer_details": "We guarantee our products and you could get back all of your money anytime you want in 30 days."},{"offer_name": "Special Financing","offer_details": "Get 20%-50% off items over 50$ for a month or over 250$ for a year with our special credit card."}]
+        }
+    },
+
+    {
+        "title":"Mouse DS57-Rt6",
+        "slug":"",
+        "category": {
+            "main": "technology",
+            "separator": "top quality",
+            "sub_category": "expensive",
+            "react_icon": "IoShirtOutline"
+        },
+        "img":[
+            "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "https://images.unsplash.com/photo-1574012716378-0ca6f4c18c08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1717&q=80",
+            "https://images.unsplash.com/photo-1561112078-7d24e04c3407?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+            "https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80",
+            "https://images.unsplash.com/photo-1585314614250-d213876625e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
+        ],
+        "price":[{"price":"850","date":"03-25-2022"}],
+        "active_price": 640,
+        "brand":"DELL",
+        "model":"DS57-Rt6",
+        "quantity": "24",
+        "varity":[
+            {"price":550,"quantity":5,"color":"purple","size":"medium"},
+            {"price":450,"quantity":8,"color":"black","size":"Large"},
+            {"price":680,"quantity":0,"color":"yash","size":"extra large"},
+            {"price":599,"quantity":28,"color":"black","size":"extra large"},
+            {"price":950,"quantity":52,"color":"white","size":"sMall"},
+            {"price":650,"quantity":15,"color":"black","size":"small"}
+        ],
+        "shop":"632c6814d6a1002c9b180970",
+        "details":{
+            "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
+            "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],
+            "special_offers": [{"offer_name": "Free Shipping & Return","offer_details": "We offer free shipping for products on orders above 50$ and offer free delivery for all orders in US."},{"offer_name": "Free and Easy Returns","offer_details": "We guarantee our products and you could get back all of your money anytime you want in 30 days."},{"offer_name": "Special Financing","offer_details": "Get 20%-50% off items over 50$ for a month or over 250$ for a year with our special credit card."}]
+        }
+    },
+
+    {
+        "title":"Full Pant",
+        "slug":"",
+        "category": {
+            "main": "fashion",
+            "separator": "boy",
+            "sub_category": "expensive",
+            "react_icon": "IoShirtOutline"
+        },
+        "img":[
+            "https://images.unsplash.com/photo-1628836816270-7190b3b37edd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            "https://images.unsplash.com/photo-1652184513381-9755426e7fd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=648&q=80",
+            "https://images.unsplash.com/photo-1631883958724-4aebab11b6a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+            "https://images.unsplash.com/photo-1634454781151-66ced09aadcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        ],
+        "price":[{"price":"850","date":"03-25-2022"},{"price":"950","date":"02-25-2022"}],
+        "active_price": 1540,
+        "brand":"nICE",
+        "model":"DST57-Rt6",
+        "quantity": "24",
+        "varity":[
+            {"price":1550,"quantity":5,"color":"purple","size":"medium"},
+            {"price":1450,"quantity":3,"color":"black","size":"Large"},
+            {"price":1680,"quantity":80,"color":"yash","size":"extra large"},
+            {"price":1599,"quantity":15,"color":"yellow","size":"extra large"},
+            {"price":1950,"quantity":12,"color":"white","size":"sMall"},
+            {"price":1050,"quantity":28,"color":"MIX shed","size":"extra small"}
+        ],
+        "shop":"632c6814d6a1002c9b180970",
+        "details":{
+            "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
+            "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],
+            "special_offers": [{"offer_name": "Free Shipping & Return","offer_details": "We offer free shipping for products on orders above 50$ and offer free delivery for all orders in US."},{"offer_name": "Free and Easy Returns","offer_details": "We guarantee our products and you could get back all of your money anytime you want in 30 days."},{"offer_name": "Special Financing","offer_details": "Get 20%-50% off items over 50$ for a month or over 250$ for a year with our special credit card."}]
+        }
+    }
+]
+
+

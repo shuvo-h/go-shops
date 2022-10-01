@@ -1,14 +1,19 @@
 import React from 'react';
 import NavLink from 'next/link';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { Rating } from 'react-simple-star-rating';
 
-const ShopSideNav = ({categories,shop}) => {
+const ShopSideNav = ({categories,shop,topSoldProducts}) => {
+    const router = useRouter();
+    
     return (
         <aside>
             <div>
                 <h4>All Categories</h4>
                 <div>
                     {
-                        categories.map((ctg,idx)=> <button style={{display:"block", width:"100%", textAlign:"left", border:"none", margin:"3px auto"}} key={`ctg-${idx}`}>{ctg.category}</button>)
+                        categories.map((ctg,idx)=> <NavLink href={{pathname:router.pathname,query:{...router.query,main:ctg.category}}} scroll={false} shallow={false} key={`ctg-${idx}`}><a style={{display:"block", width:"100%", textAlign:"left", border:"none", margin:"3px auto"}}>{ctg.category}</a></NavLink>)
                     }
                 </div>
             </div>
@@ -55,7 +60,18 @@ const ShopSideNav = ({categories,shop}) => {
             <div>
                 <h4>Best Selling</h4>
                 <div>
-                    <u>do this when product is added in this shop</u>
+                    {
+                        topSoldProducts.map(topProduct =><div style={{display:"grid",gridTemplateColumns:"1fr 2fr"}} key={topProduct._id}>
+                            <div>
+                                <Image src={topProduct.img[0]} width={80} height={80} alt="Not Found"></Image>
+                            </div>
+                            <div>
+                                <h5 style={{margin:"0"}}>{topProduct.title}</h5>
+                                <Rating  ratingValue={20 * topProduct.review_avg}  readonly = {true} size={25} />
+                                <h4 style={{margin:"0"}}>${topProduct.active_price}</h4>
+                            </div>
+                        </div>)
+                    }
                 </div>
             </div>
         </aside>

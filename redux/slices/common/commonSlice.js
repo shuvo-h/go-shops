@@ -27,4 +27,4 @@ export const commonSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { setLanguage, setCurrency } = commonSlice.actions
 
-export default commonSlice.reducer
+export default commonSlice.reducer;

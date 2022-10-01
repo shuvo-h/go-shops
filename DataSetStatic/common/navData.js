@@ -25,18 +25,15 @@ export const headerMiddleData = {
     buttons: [
         {
             title: "Wishlist",
-            // reactIcon: "BsHeart" // must import from react icons in component
             reactIcon: getSVGicons(icons.accountDetailsIcon,20,20)
         },
         {
             title: "Compare",
-            // reactIcon: "RiScales3Fill" 
-            reactIcon: getSVGicons(icons.accountDetailsIcon,20,20)
+            reactIcon: getSVGicons(icons.compareIcon,20,20)
         },
         {
             title: "Cart",
-            // reactIcon: "AiOutlineShopping" 
-            reactIcon: getSVGicons(icons.accountDetailsIcon)
+            reactIcon: getSVGicons(icons.bagIcon,20,20)
         },
     ]
 }
@@ -45,7 +42,7 @@ export const mainNavItems = {
     mainnavLinks : [
         {title:"Home", path:"/"},
         {title:"Seller List", path:"/sellers"},
-        {title:"Seller Store", path:"/sellers"},
+        {title:"Seller Store", path:"/sellers/store"},
         {title:"Category", path:"/category"},
         {title:"Shop", path:"/shop"},
         {title:"Product", path:"/product"},

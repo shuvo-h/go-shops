@@ -9,11 +9,7 @@ const SellerSingleCard = ({seller}) => {
         <div style={{border:"1px solid lightgrey", color:"white"}}>
             <div style={{border:"1px solid lightgrey", padding:"1em 1em", backgroundImage:`url(${seller.banner})`, backgroundSize:"100% 100%"}}>
                 <h4 style={{margin:"10px 0"}}>{seller.shop_name}</h4>
-                <Rating 
-                    ratingValue={20 * seller.review} 
-                    readonly = {true}
-                    size={25}
-                />
+                <Rating  ratingValue={20 * seller.review}  readonly = {true} size={25}/>
                 <p style={{margin:"0"}}>{seller.address.contact_email}</p>
                 <p style={{margin:"0"}}>{seller.address.phone}</p>
             </div>

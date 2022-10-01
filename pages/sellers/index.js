@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import NavLink from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import MainLayout from '../../Components/MainLayout/MainLayout';
 import SellerCards from '../../Components/SellerList/SellerCards';
@@ -8,6 +9,13 @@ import { seller_pageMeta } from '../../DataSetStatic/sellersData/sellerPageData'
 import usePagination from '../../hooks/usePagination/usePagination';
 import { setCategoriesInHome } from '../../redux/slices/HomeSlice';
 import { getProductCategories } from '../../utils/client_utils/productsUtils/productUtils';
+import NavStepShowArrow from '../../Components/common/NavLink/NavStepShowArrow';
+
+const stepsNavList = [
+    {name:"Home", path:"/"},
+    {name:"Seller", path:"/sellers"},
+    {name:"Store List", path:"/", disable:true},
+]
 
 const Sellers = ({categories}) => {
     const dispatch = useDispatch();
@@ -21,9 +29,7 @@ const Sellers = ({categories}) => {
     return (
         <MainLayout pageMeta={seller_pageMeta}>
             <section className='baseContainer'>
-                <div>
-                    home &gt; Seller &gt; Sore List
-                </div>
+                <NavStepShowArrow stepsNavList={stepsNavList}></NavStepShowArrow>
                 <div style={{display:"grid", gridTemplateColumns:"250px 1fr", gap:"50px", margin:"50px auto"}}>
                     <SellerFilterNav categories={categories} setSelectOption={setSearchQuery} setCurrentPage={setCurrentPage} selectOption={searchQuery}></SellerFilterNav>
                     <SellerCards sellers={queryData} setSelectOption={setSearchQuery} displayPageNumbers={displayPageNumbers} totalCount={totalCount}pageSize={pageSize}currentPage={currentPage}></SellerCards>

@@ -4,12 +4,13 @@ const categorySchema = new mongoose.Schema(
     {
         category: {
             type: String, 
+            lowercase: true,
             required: [true,"category is required"], 
             unique: [true,"category already exist"]
         },
         icon: {type: String, required: [true,"Icon is required"]},
-        sub_category: [ {type:String}],
-        separator: [ {type:String}]
+        sub_category: [ {type:String,lowercase: true,}],
+        separator: [ {type:String,lowercase: true,}]
     },
     {
         timestamps: true

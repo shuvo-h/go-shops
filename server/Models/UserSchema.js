@@ -53,6 +53,10 @@ const userSchema = new mongoose.Schema(
                 values: ["user","admin","vendor"],
                 message: "Role can't be {VALUE}"
             }
+        },
+        profile_img:{
+            type: String,
+            required: [true,"Profile Image url is required!"]
         }
     },
     {

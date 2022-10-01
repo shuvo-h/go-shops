@@ -8,9 +8,23 @@ import { getSVGicons, icons } from '../../../utils/client_utils/icons/getSVGIcon
 
 
 const NavBottomCategory = () => {
-    const [subCtgHover,setSubCtgHover] = useState("")
+    const [selectedCtg,setSelectedCtg] = useState({})
+    // const [subCtgHover,setSubCtgHover] = useState("")
     const mainCategory = useSelector(({Home}) => Home.categories);
     // console.log(mainCategory);
+
+    const onClickCategoryHandler = (e) =>{
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            router.push({pathname:'/shop',query:{...selectedSearch}})
+        }else{
+            setSelectedCtg(pre=>{
+                const temp = {...pre}
+                temp[e.target.name] = e.target.value;
+                return temp;
+            })
+        }
+    }
+
     
     return (
         <div className={mainLayoutST.headerBTM_ct_wrapper}>
@@ -27,7 +41,7 @@ const NavBottomCategory = () => {
                             // console.log(mainLayoutST);
                             return <div className={`${mainLayoutST.headerBTM_main_ctg_wrapper}`} key={mainCtg.category} style={{position:"relative",}}>
                             <div>
-                                <NavLink href={"/"}>
+                                <NavLink href={{pathname:`/category/${mainCtg.category}`}}>
                                     <a className={mainLayoutST.category_spacing}>
                                         {getSVGicons(icons.accountDetailsIcon)} 
                                         {mainCtg.category} {">"}
@@ -36,7 +50,7 @@ const NavBottomCategory = () => {
                             </div>
                             <div className={mainLayoutST.sub_ctg_wrap}>
                                 <div className={`${mainLayoutST[`sub_ctg_${idx}`]}`}>
-                                    <HeadNavSubCategory sub_category={mainCtg.sub_category} separator={mainCtg.separator}></HeadNavSubCategory>
+                                    <HeadNavSubCategory sub_category={mainCtg.sub_category} mainCategory={mainCtg.category} separator={mainCtg.separator}></HeadNavSubCategory>
                                 </div>
                             </div>
                         </div>}
