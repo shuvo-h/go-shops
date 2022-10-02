@@ -17,7 +17,7 @@ const ProductReview = ({product}) => {
     const {login_status,user} = useSelector(state=>state.User);
     const [newRating,setNewRating] = useState({});
     const [isReviewAddLoading,setIsReviewAddLoading] = useState(false);
-
+console.log(newRating);
     
     const getReviewPercentage = (min,high) =>{
         const reviewPercent = (product.reviews?.map(review=>{
@@ -25,7 +25,8 @@ const ProductReview = ({product}) => {
                 return review.product_review;
             }
         })?.filter(review=>review === Number(review))?.length*100)/product.reviews?.length;
-        return reviewPercent;
+       
+        return reviewPercent ? reviewPercent : 0;
     }
 
     const handleReviewSubmit = (e) =>{
@@ -35,6 +36,7 @@ const ProductReview = ({product}) => {
             newRating.user_id = user._id;
             newRating.product_id = product._id;
             newRating.review_date = new Date();
+            newRating.product_review = newRating.product_review/20;
             fetch("/api/reviews?type=product",{
                 method:"POST",
                 headers:{"content-type":"application/json","Authorization":`Bearer ${user.token}`},

@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema(
             // react_icon: {type: String, required: true}
         },
         img:[{type: String, required: true}],
-        video:{type: String, required: [true,"Product Video is Required"]},
+        // video:{type: String, required: [true,"Product Video is Required"]},
         price:{
             type: [priceSchema]
         },
@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema(
             required: [true,"Product price is required"]
         },
         brand:{type: String, required: [true,"Brand name is required"]},
-        model:{type: String, required: [true,"Model name is required"],unique:true},
+        model:{type: String, required: [true,"Model name is required"],unique:false},
         varity:[{
             price:{type: Number, required: true},
             color:{type: String, required: true,lowercase: true},

@@ -1,6 +1,6 @@
-import { getEmailIcon } from "../svgIcons/commonSVGicons";
+import { getEmailIcon, getMenuIcon } from "../svgIcons/commonSVGicons";
 import { getDoiscoverCard } from "../svgIcons/discoverCard";
-import { deliveryTrack, getAccountDetailsIcon, getAddressIcon, getBagIcon, getCompareIcon, getContactSupportIcon, getDownloadIcon, getHeartIcon, getLinkedINIcon, getLogoutIcon, getMoneyBackIcon, getOrderListIcon, getTelePhoneIcon } from "../svgIcons/ecommerce_Icons";
+import { deliveryTrack, getAccountDetailsIcon, getAddressIcon, getBagIcon, getCompareIcon, getContactSupportIcon, getDownloadIcon, getHeartIcon, getIshirtIcon, getLinkedINIcon, getLogoutIcon, getMedicalIcon, getMoneyBackIcon, getOrderListIcon, getTechnologyIcon, getTelePhoneIcon } from "../svgIcons/ecommerce_Icons";
 import getFBicon from "../svgIcons/getFBicon";
 import instagramIcon from "../svgIcons/instagramIcon";
 import { getMasterCard } from "../svgIcons/masterCard";
@@ -32,7 +32,12 @@ export const icons = {
     emailIcon: "emailIcon",
     compareIcon: "compareIcon",
     telephoneIcon: "telephoneIcon",
+    tshirtIcon: "tshirtIcon",
+    technologyIcon: "technologyIcon",
+    menuIcon: "menuIcon",
+    medicalIcon: "medicalIcon",
 }
+
 export const getSVGicons = (iconName,width,height) =>{
     switch (iconName) {
         // card icons
@@ -60,12 +65,16 @@ export const getSVGicons = (iconName,width,height) =>{
         case icons.accountDetailsIcon:  return getAccountDetailsIcon(width,height);
         case icons.heartIcon:  return getHeartIcon(width,height);
         case icons.compareIcon:  return getCompareIcon(width,height);
+        case icons.tshirtIcon:  return getIshirtIcon(width,height);
+        case icons.technologyIcon:  return getTechnologyIcon(width,height);
+        case icons.medicalIcon:  return getMedicalIcon(width,height);
 
         // common icons
         case icons.emailIcon:  return getEmailIcon(width,height);
         case icons.telephoneIcon:  return getTelePhoneIcon(width,height);
-    
+        
         default:
+            case icons.menuIcon:  return getMenuIcon(width,height);
             break;
     }
 }

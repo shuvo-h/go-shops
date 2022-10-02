@@ -12,8 +12,8 @@ import { useEffect } from 'react';
 
 const MyAccount = () => {
     // const router = useRouter()
-    // const {user,login_status,login_err} = useSelector(state =>state.User);
-    // console.log(user);
+    const {user,login_status,login_err} = useSelector(state =>state.User);
+    console.log(user);
     // useEffect(()=>{
     //     if (!login_status && !user.token) {
     //         router.replace("/login");

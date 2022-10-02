@@ -18,7 +18,7 @@ const stepsNavListOrder = [
 const OrderList = () => {
     return (
         <MainLayout pageMeta={orderPAge_metadata}>
-            <NavStepShowArrow stepsNavList={stepsNavList}></NavStepShowArrow>
+            <NavStepShowArrow stepsNavList={stepsNavListOrder}></NavStepShowArrow>
         </MainLayout>
     );
 };

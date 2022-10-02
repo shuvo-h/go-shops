@@ -29,6 +29,10 @@
             {"price":850,"quantity":18,"color":"black","size":"small"}
         ],
         "shop":"632c6814d6a1002c9b180970",
+        "return_policy":{
+            "guarantee":"1 month",
+            "warantee": "6 months"
+        },
         "details":{
             "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
             "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],
@@ -66,6 +70,10 @@
             {"price":650,"quantity":15,"color":"black","size":"small"}
         ],
         "shop":"632c6814d6a1002c9b180970",
+        "return_policy":{
+            "guarantee":"1 month",
+            "warantee": "6 months"
+        },
         "details":{
             "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
             "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],
@@ -102,6 +110,88 @@
             {"price":1050,"quantity":28,"color":"MIX shed","size":"extra small"}
         ],
         "shop":"632c6814d6a1002c9b180970",
+        "return_policy":{
+            "guarantee":"1 month",
+            "warantee": "6 months"
+        },
+        "details":{
+            "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
+            "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],
+            "special_offers": [{"offer_name": "Free Shipping & Return","offer_details": "We offer free shipping for products on orders above 50$ and offer free delivery for all orders in US."},{"offer_name": "Free and Easy Returns","offer_details": "We guarantee our products and you could get back all of your money anytime you want in 30 days."},{"offer_name": "Special Financing","offer_details": "Get 20%-50% off items over 50$ for a month or over 250$ for a year with our special credit card."}]
+        }
+    },
+    {
+        "title":"Paracetamol 500mg",
+        "slug":"",
+        "category": {
+            "main": "medical products",
+            "separator": "Neptune",
+            "sub_category": "safety",
+            "react_icon": "medicalIcon"
+        },
+        "img":[
+            "https://5.imimg.com/data5/SELLER/Default/2021/1/WH/CJ/NA/98661571/pharmaceutical-distributors-500x500.jpg",
+            "https://5.imimg.com/data5/SELLER/Default/2021/2/ZS/KS/RU/41401491/paracetamol-650-mg-1000x1000.jpg",
+            "https://mediboonpharma.com/wp-content/uploads/2022/03/ACIBOON-P.jpeg",
+            "https://images.theconversation.com/files/142554/original/image-20161020-8855-1seo2vn.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop"
+        ],
+        "price":[{"price":"53","date":"03-25-2022"},{"price":"950","date":"02-25-2022"}],
+        "active_price": 42,
+        "brand":"paracetamol",
+        "model":"Pt67",
+        "quantity": "104",
+        "varity":[
+            {"price":52,"quantity":5,"color":"DodgerBlue","size":"medium"},
+            {"price":25,"quantity":3,"color":"white","size":"Large"},
+            {"price":23,"quantity":80,"color":"LawnGreen","size":"extra large"},
+            {"price":18,"quantity":15,"color":"Indigo","size":"extra large"},
+            {"price":34,"quantity":12,"color":"white","size":"sMall"},
+            {"price":38,"quantity":28,"color":"Magenta","size":"extra small"}
+        ],
+        "shop":"63396af382ec091a5c0726a6",
+        "return_policy":{
+            "guarantee":"1 month",
+            "warantee": "6 months"
+        },
+        "details":{
+            "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
+            "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],
+            "special_offers": [{"offer_name": "Free Shipping & Return","offer_details": "We offer free shipping for products on orders above 50$ and offer free delivery for all orders in US."},{"offer_name": "Free and Easy Returns","offer_details": "We guarantee our products and you could get back all of your money anytime you want in 30 days."},{"offer_name": "Special Financing","offer_details": "Get 20%-50% off items over 50$ for a month or over 250$ for a year with our special credit card."}]
+        }
+    },
+    {
+        "title":"Saline Solution 1000mg",
+        "slug":"",
+        "category": {
+            "main": "medical products",
+            "separator": "Warrantee",
+            "sub_category": "operation",
+            "react_icon": "medicalIcon"
+        },
+        "img":[
+            "https://lzd-img-global.slatic.net/g/p/7ce6f647547804c4ba37c427019c8e3a.jpg_720x720q80.jpg_.webp",
+            "https://5.imimg.com/data5/NZ/HQ/PP/SELLER-37686436/normal-saline-500x500.jpg",
+            "https://5.imimg.com/data5/GLADMIN/Default/2021/6/RL/XJ/UM/90765791/500ml-normal-saline-sodium-chloride-0-9-for-intravenous-infusion-500x500.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/0c/NaCl_0%2C9%25_500ml_white_background.jpg"
+        ],
+        "price":[{"price":"85","date":"03-25-2022"},{"price":"950","date":"02-25-2022"}],
+        "active_price": 102,
+        "brand":"paracetamol",
+        "model":"Pt67 56",
+        "quantity": "104",
+        "varity":[
+            {"price":112,"quantity":5,"color":"DodgerBlue","size":"medium"},
+            {"price":125,"quantity":3,"color":"white","size":"Large"},
+            {"price":115,"quantity":80,"color":"SandyBrown","size":"extra large"},
+            {"price":128,"quantity":15,"color":"Silver","size":"extra large"},
+            {"price":140,"quantity":12,"color":"white","size":"sMall"},
+            {"price":138,"quantity":28,"color":"SandyBrown","size":"extra small"}
+        ],
+        "shop":"63396c4282ec091a5c0726be",
+        "return_policy":{
+            "guarantee":"1 month",
+            "warantee": "6 months"
+        },
         "details":{
             "description": ["lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ","lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum . lorem ipsum lorem ipsum"],
             "highlights": ["Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.","Vivamus finibus vel mauris ut vehicula.","Nullam a magna porttitor, dictum risus nec, faucibus sapien."],

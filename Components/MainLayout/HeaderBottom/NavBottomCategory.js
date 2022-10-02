@@ -11,7 +11,7 @@ const NavBottomCategory = () => {
     const [selectedCtg,setSelectedCtg] = useState({})
     // const [subCtgHover,setSubCtgHover] = useState("")
     const mainCategory = useSelector(({Home}) => Home.categories);
-    // console.log(mainCategory);
+    console.log(mainCategory);
 
     const onClickCategoryHandler = (e) =>{
         if (e.key === 'Enter' || e.keyCode === 13) {
@@ -30,7 +30,7 @@ const NavBottomCategory = () => {
         <div className={mainLayoutST.headerBTM_ct_wrapper}>
             <div className='centerEL'>
                 <div className={`${mainLayoutST.headerBTM_ctg} ${mainLayoutST.category_spacing}`}>
-                    {getSVGicons(icons.accountDetailsIcon)}
+                    {getSVGicons(icons.menuIcon,20,20)}
                     BROWSE CATEGORIES
                 </div>
             </div>
@@ -38,12 +38,13 @@ const NavBottomCategory = () => {
                 <div>
                     {
                         mainCategory?.length && mainCategory?.slice(0,10).map((mainCtg,idx) =>{ 
-                            // console.log(mainLayoutST);
+                            // console.log(mainCtg);
                             return <div className={`${mainLayoutST.headerBTM_main_ctg_wrapper}`} key={mainCtg.category} style={{position:"relative",}}>
                             <div>
                                 <NavLink href={{pathname:`/category/${mainCtg.category}`}}>
                                     <a className={mainLayoutST.category_spacing}>
-                                        {getSVGicons(icons.accountDetailsIcon)} 
+                                        {/* {getSVGicons(icons.accountDetailsIcon)}  */}
+                                        {getSVGicons(mainCtg.icon,20,20)} 
                                         {mainCtg.category} {">"}
                                     </a>
                                 </NavLink>
