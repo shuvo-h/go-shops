@@ -7,7 +7,9 @@ import { setCategoriesInHome } from '../../redux/slices/HomeSlice';
 import { getCategoriesService } from '../../server/API_services/categoryServices/categoryService';
 import NavSideShopFilter from '../../Components/ShopComponents/NavSideShopFilter';
 import ShopProductDisplayArea from '../../Components/ShopComponents/ShopProductDisplayArea';
-import { getProductService, getProductUniqueArrayKeysService } from '../../server/API_services/productServices/productService';
+// import { getProductService, getProductUniqueArrayKeysService } from '../../server/API_services/productServices/productService';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const category_pageMeta = {
     title:"Shop",
@@ -25,27 +27,84 @@ const shopStepNavList = [
 
 
 
-const Shop = ({categories,productsInfo,productVarityList}) => {
+const Shop = ({categories,productsInfoFS,productVarityListFS}) => {
     const dispatch = useDispatch();
-    
+    const router = useRouter();
+    const {query} = router;
+    const [productVarityList,setProductVarityList] = useState(productVarityListFS);
+    const [productsInfo,setproductsInfo] = useState(productsInfoFS);
+    const [isDataLoading,setIsDataLoading] = useState(true);
+
     useEffect(()=>{
         dispatch(setCategoriesInHome(categories))
     },[categories?.length])
 
+
+    // due to vercel free plan Serverless Function Execution Timeout limitation, fetching the getServerSideProps() data here in useEffect
+    // delete this useEffect and uncomment the getServerSideProps() code, if you move to premium plan of vercel 
+    useEffect(()=>{
+        setIsDataLoading(true)
+        const serverlessFnDataFetch = async () =>{
+            const productVarityListRes = await fetch("api/serverside-props/shop_index",{
+                method:"POST",
+                headers:{'content-type':"application/json"},
+                body: JSON.stringify({dataFor: "productVarityList"})
+            });
+            const productVarityList = await productVarityListRes.json();
+            setProductVarityList(productVarityList)
+
+            // get all products
+            const productQuery = {...query};
+            if (productQuery.category) {
+                delete productQuery.category; // delete category from productQuery and add as category.main key
+                productQuery['category.main'] = query.category;
+            }
+            if (productQuery.price) {
+                delete productQuery.price; 
+                productQuery['active_price'] = query.price;
+            }
+            if (productQuery.size) {
+                delete productQuery.size; 
+                productQuery['varity.size'] = query.size;
+            }
+            if (productQuery.color) {
+                delete productQuery.color; 
+                productQuery['varity.color'] = query.color;
+            }
+            // console.log(productQuery,"productQuery in server props");
+            const productsInfoRes = await fetch("api/serverside-props/shop_index",{
+                method:"POST",
+                headers:{'content-type':"application/json"},
+                body: JSON.stringify({dataFor: "productsInfo",productQuery})
+            });
+            const productsInfo = await productsInfoRes.json();
+            setproductsInfo(productsInfo);
+            setIsDataLoading(false)
+        }
+        serverlessFnDataFetch();
+    },[])
+
+   
+    
     return (
         <MainLayout pageMeta={category_pageMeta}>
             <section className='baseContainer'>
                 <NavStepShowArrow stepsNavList={shopStepNavList}></NavStepShowArrow>
             </section>
             <BannerCategoryCom></BannerCategoryCom>
-            <section className='baseContainer' style={{display:"grid", gridTemplateColumns:"250px 1fr"}}>
-                <aside>
-                    <NavSideShopFilter categories={categories} productVarityList={productVarityList}></NavSideShopFilter>
-                </aside>
-                <aside>
-                    <ShopProductDisplayArea productsInfo={productsInfo}></ShopProductDisplayArea>
-                </aside>
-            </section>
+            {
+                isDataLoading 
+                ?   <p>Loading........</p>
+                :  <section className='baseContainer' style={{display:"grid", gridTemplateColumns:"250px 1fr"}}>
+                        <aside>
+                            <NavSideShopFilter categories={categories} productVarityList={productVarityList}></NavSideShopFilter>
+                        </aside>
+                        <aside>
+                            <ShopProductDisplayArea productsInfo={productsInfo}></ShopProductDisplayArea>
+                        </aside>
+                    </section>
+            }
+            
         </MainLayout>
     );
 };
@@ -63,6 +122,8 @@ export const getServerSideProps = async(context) =>{
 
     try {
         const categories = await getCategoriesService();
+        /*
+        // writing this code in effect to get ride of serverless function timeout issue for free plan
         const productVarityList = await getProductUniqueArrayKeysService(["varity.size","varity.color","brand"]);
         
         // get all products
@@ -83,17 +144,17 @@ export const getServerSideProps = async(context) =>{
             delete productQuery.color; 
             productQuery['varity.color'] = query.color;
         }
-        // console.log(productQuery,"productQuery in server props");
+        
         const productsInfo = await getProductService(productQuery);
-
-        // console.log(productsInfo.data.map(el=>el.title)," <=> RETURNED data");
+        */
         return {
-            // props:{shop: {},categories:[],products:{}}
             props:{
+                // categories:JSON.parse(JSON.stringify(categories)),
+                // productsInfoFS:JSON.parse(JSON.stringify(productsInfo)),
+                // productVarityListFS:JSON.parse(JSON.stringify(productVarityList)),
                 categories:JSON.parse(JSON.stringify(categories)),
-                productsInfo:JSON.parse(JSON.stringify(productsInfo)),
-                productVarityList:JSON.parse(JSON.stringify(productVarityList)),
-                // productColors:JSON.parse(JSON.stringify(productColors)),
+                productsInfoFS: {},
+                productVarityListFS: {},
             }
         }
     } catch (error) {

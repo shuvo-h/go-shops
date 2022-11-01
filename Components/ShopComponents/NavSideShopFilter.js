@@ -34,7 +34,7 @@ const NavSideShopFilter = ({categories,productVarityList}) => {
                 <h4>All Categories</h4>
                 <div>
                     {
-                        categories.map((ctg,idx)=> <NavLink href={{pathname:router.pathname,query:{...router.query,category:ctg.category}}} key={`ctg-${idx}`}><a style={{display:"block"}}>{ctg.category}</a></NavLink>)
+                        categories?.map((ctg,idx)=> <NavLink href={{pathname:router.pathname,query:{...router.query,category:ctg.category}}} key={`ctg-${idx}`}><a style={{display:"block"}}>{ctg.category}</a></NavLink>)
                     }
                 </div>
             </div>
@@ -43,7 +43,7 @@ const NavSideShopFilter = ({categories,productVarityList}) => {
                 <div>
                     {
                         // priceRanges.map((price,idx)=> <NavLink href={{pathname:"router.pathname",query:{"...router.query,price:price.queryRange"}}} key={`price-${idx}`}><a style={{display:"block"}}>{price.display}</a></NavLink>)
-                        priceRanges.map((price,idx)=> <NavLink href={{pathname:router.pathname,query:{...router.query,price:price.queryRange}}} shallow={false} key={`price-${idx}`}><a style={{display:"block"}}>{price.display}</a></NavLink>)
+                        priceRanges?.map((price,idx)=> <NavLink href={{pathname:router.pathname,query:{...router.query,price:price.queryRange}}} shallow={false} key={`price-${idx}`}><a style={{display:"block"}}>{price.display}</a></NavLink>)
                     }
                 </div>
                 <div>
@@ -58,7 +58,7 @@ const NavSideShopFilter = ({categories,productVarityList}) => {
                 <div>
                     {
                         // productSizes.map(size => <NavLink href={{pathname:"",query:{}}} passHref={true} scroll={true} shallow={true} key={`size-${size.display}`}><a>{size.display}</a></NavLink>)
-                        productVarityList.varity_size?.map(size => <NavLink href={{pathname:router.pathname,query:{...router.query,size:size}}} passHref={true} scroll={false} shallow={false} key={`size-${size}`}>
+                        productVarityList?.varity_size?.map(size => <NavLink href={{pathname:router.pathname,query:{...router.query,size:size}}} passHref={true} scroll={false} shallow={false} key={`size-${size}`}>
                             <div onClick={()=>setActiveSize(size)}>
                                 <input type="checkbox" onChange={()=>{}} value={size} checked={activeSize === size ? true:false} />
                                 <a>{size}</a>

@@ -8,7 +8,7 @@ export const checkAuthLogin = async(req,res,next) =>{
     const {email,password} = req.body;
     try {
         // decode the token
-        const decodedUser = await verifyToken(req.headers.authorization?.split(" ")[1]);
+        const decodedUser = await verifyToken(req.headers?.authorization?.split(" ")[1]);
         if (decodedUser.email) {
             await db.connect();
             const dbUser = await UsersModel.findOne({email:decodedUser.email},{_id:0,email:1})

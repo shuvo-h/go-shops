@@ -85,6 +85,10 @@ const productSchema = new mongoose.Schema(
     }
 )
 
+// before using text search, create an index on the text search fields
+// https://stackoverflow.com/questions/28775051/best-way-to-perform-a-full-text-search-in-mongodb-and-mongoose
+// {$text:{$search:"your searched text"}}
+
 const ProductsModel = mongoose.models.Products || mongoose.model("Products",productSchema);
 
 export default ProductsModel;

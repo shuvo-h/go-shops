@@ -11,7 +11,7 @@ const NavBottomCategory = () => {
     const [selectedCtg,setSelectedCtg] = useState({})
     // const [subCtgHover,setSubCtgHover] = useState("")
     const mainCategory = useSelector(({Home}) => Home.categories);
-    console.log(mainCategory);
+    // console.log(mainCategory);
 
     const onClickCategoryHandler = (e) =>{
         if (e.key === 'Enter' || e.keyCode === 13) {

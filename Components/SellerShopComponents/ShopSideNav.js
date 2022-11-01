@@ -13,7 +13,7 @@ const ShopSideNav = ({categories,shop,topSoldProducts}) => {
                 <h4>All Categories</h4>
                 <div>
                     {
-                        categories.map((ctg,idx)=> <NavLink href={{pathname:router.pathname,query:{...router.query,main:ctg.category}}} scroll={false} shallow={false} key={`ctg-${idx}`}><a style={{display:"block", width:"100%", textAlign:"left", border:"none", margin:"3px auto"}}>{ctg.category}</a></NavLink>)
+                        categories?.map((ctg,idx)=> <NavLink href={{pathname:router.pathname,query:{...router.query,main:ctg.category}}} scroll={false} shallow={false} key={`ctg-${idx}`}><a style={{display:"block", width:"100%", textAlign:"left", border:"none", margin:"3px auto"}}>{ctg.category}</a></NavLink>)
                     }
                 </div>
             </div>
@@ -61,7 +61,7 @@ const ShopSideNav = ({categories,shop,topSoldProducts}) => {
                 <h4>Best Selling</h4>
                 <div>
                     {
-                        topSoldProducts.map(topProduct =><div style={{display:"grid",gridTemplateColumns:"1fr 2fr"}} key={topProduct._id}>
+                        topSoldProducts?.map(topProduct =><div style={{display:"grid",gridTemplateColumns:"1fr 2fr"}} key={topProduct._id}>
                             <div>
                                 <Image src={topProduct.img[0]} width={80} height={80} alt="Not Found"></Image>
                             </div>

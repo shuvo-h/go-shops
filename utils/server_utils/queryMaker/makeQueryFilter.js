@@ -31,8 +31,8 @@ export const filterOperatorFormatter = (mainQuery={},operatorKeys=[]) =>{
    Object.keys(tempMainQuery).forEach(key=> operatorKeys.indexOf(key) < 0 && delete tempMainQuery[key]);
     // convert operator filter command
     const operatorFilterArr = Object.entries(tempMainQuery).map(operatorObj=>{
-        const tempQueries = operatorObj[1].split(",").map(opEl=>{
-            const filterKeyVal =opEl.split("~")
+        const tempQueries = operatorObj[1]?.split(",").map(opEl=>{
+            const filterKeyVal =opEl?.split("~")
             return {[`$${filterKeyVal[0]}`]:filterKeyVal[1]}
         })
         return {[operatorObj[0]]:Object.assign({},...tempQueries)} 
@@ -72,13 +72,13 @@ export const calculatePaginationFields = (mainQuery) =>{
 
     // sorting of the docs array
     if (reqQuery.sort) {
-        const sortBy = reqQuery.sort.split(",").join(" ");
+        const sortBy = reqQuery.sort?.split(",").join(" ");
         queries.sortBy = sortBy;
     }
 
     // returned fields of the doc
     if (reqQuery.fields) {
-        const fields = reqQuery.fields.split(",").join(" ");
+        const fields = reqQuery.fields?.split(",").join(" ");
         queries.fields = fields;
     }
 
@@ -110,8 +110,8 @@ export const filterOperator_specificIdxEl_fromArrOfObj = (mainQuery,mainKeys,fix
     
     // convert operator filter command
     const operatorFilterArr = Object.entries(reqQuery).map(operatorObj=>{
-        const tempQueries = operatorObj[1].split(",").map(opEl=>{
-            const filterKeyVal =opEl.split("~")
+        const tempQueries = operatorObj[1]?.split(",").map(opEl=>{
+            const filterKeyVal =opEl?.split("~")
             return {[`$${filterKeyVal[0]}`]:filterKeyVal[1]}
         })
         return {[`${operatorObj[0]}.${fixIndex}.${nestedKey}`]:Object.assign({},...tempQueries)} 

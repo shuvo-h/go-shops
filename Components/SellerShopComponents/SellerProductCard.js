@@ -45,7 +45,7 @@ const SellerProductCard = ({productlist}) => {
             </div>
             <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1rem"}}>
                 {
-                    productlist.data?.map(product=> <NavLink href={`/product/${product._id}`} key={product._id} passHref={true}>
+                    productlist?.data?.map(product=> <NavLink href={`/product/${product._id}`} key={product._id} passHref={true}>
                         <a>
                             <div style={{border:"1px solid"}}>
                                 <div><Image src={product.img[0]} width={800} height={500} alt="Not Found"></Image></div>
@@ -59,7 +59,7 @@ const SellerProductCard = ({productlist}) => {
             </div>
             <div>
                 {
-                   productlist.pages > 1 && Array.from(Array(productlist.pages).keys())?.map(button => <NavLink href={{pathname:router.pathname,query:{...router.query,page:button+1}}} key={button}><a style={{border:"1px solid", padding:"2px", margin:"3px"}}>{button+1}</a></NavLink>)
+                   productlist?.pages > 1 && Array.from(Array(productlist?.pages).keys())?.map(button => <NavLink href={{pathname:router.pathname,query:{...router.query,page:button+1}}} key={button}><a style={{border:"1px solid", padding:"2px", margin:"3px"}}>{button+1}</a></NavLink>)
                 }
             </div>
         </section>
