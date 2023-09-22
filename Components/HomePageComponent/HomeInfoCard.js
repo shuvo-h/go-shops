@@ -5,7 +5,10 @@ import homeST from './homeStyle.module.css';
 
 const HomeInfoCard = () => {
     return (
-        <section className={`baseContainer verticalCenterEL ${homeST.homeInfoCard}`}>
+        <section
+         className={`baseContainer verticalCenterGrid ${homeST.homeInfoCard}` }
+
+          >
             
                 {
                     home_pageInfoCard.map(paper => <div className={`centerEL`} key={paper.title}>
