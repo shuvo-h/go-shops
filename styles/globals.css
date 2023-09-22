@@ -36,6 +36,10 @@ a {
   display: flex;
   align-items: center;
 }
+.verticalCenterGrid{
+  display: grid;
+}
+
 
 .btn{
   border: none;

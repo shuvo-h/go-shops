@@ -329,6 +329,21 @@
     border-bottom: 1px  solid rgb(216, 210, 210);
     padding-bottom: 40px;
 }
+@media only screen and (max-width: 688px) {
+    .footerMiddle{
+      
+        grid-template-columns: repeat(1,1fr);
+    
+    }
+    .footer_subscrib{
+       flex-direction: column !important;
+    }
+    .footer_subscrib div:nth-child(1) p{
+    
+        line-height: 20px;
+     
+    }
+  }
 .footerMiddle div:nth-child(1){
     /* max-width: 300px; */
     /* border: 1px solid; */

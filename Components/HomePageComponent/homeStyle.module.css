@@ -3,10 +3,18 @@
     padding: 1.5em 2em;
     border-radius: 10px;
     margin: 50px auto;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     color: #333;
     animation: homeInfoCardAni 0.8s ease-in 0.4s;
+    grid-template-columns: repeat(4 , 4fr);
 }
+
+@media only screen and (max-width: 688px) {
+    .homeInfoCard{
+       
+        grid-template-columns: repeat(2 , 2fr);
+    }
+  }
 
 .homeInfoCard div{
     gap: 10px;
@@ -66,6 +74,13 @@
     gap: 20px;
     margin: 50px auto;
 }
+@media only screen and (max-width: 688px) {
+    .advertise_container{
+    
+        grid-template-columns: repeat(1,1fr);
+     
+    }
+  }
 
 .advertise_container div{
     padding: 50px;
@@ -102,6 +117,11 @@
     grid-template-columns: repeat(6,1fr);
     gap: 15px;
 }
+@media only screen and (max-width: 688px) {
+    .tradeShow_wrapper{
+         grid-template-columns: repeat(3,1fr);
+     }
+  }
 
 .tradeShow_card div{
     display: flex;
@@ -125,6 +145,16 @@
     gap: 20px;
     min-height: 400px;
 }
+@media only screen and (max-width: 688px) {
+    .fashionShow{
+    
+        grid-template-columns:  repeat(1 , 5fr);;
+       
+    }
+    .fashionShow div{
+        height: 250px;
+    }
+  }
 .fashionShow div{
     position: relative;
     display: flex;
@@ -180,6 +210,13 @@
     grid-template-columns: repeat(3,1fr);
     gap: 20px;
 }
+@media only screen and (max-width: 688px) {
+    .popularCategory_wrapper{
+       
+        grid-template-columns: repeat(1,1fr);
+         
+    }
+  }
 .popularCategory_wrapper h4{
     margin: 1rem 0;
     font-weight: 600;
@@ -287,6 +324,29 @@
     gap: 20px;
     min-height: 350px;
 }
+@media only screen and (max-width: 688px) {
+    .vendor_container{
+ 
+        grid-template-columns: repeat(1,1fr);
+    
+    }
+    .vendor_info{
+       
+        transform: translate(39%,-106%) !important;
+    }
+    .vendorBrand_btn{
+    
+        min-height: 4rem !important;
+        min-width: 4rem !important;
+    }
+    .onlineBusiness{
+        flex-direction: column !important;
+    }
+    
+    .commession_btn{
+        margin-bottom: 20px;
+    }
+  }
 
 .vendorCard{
     border: 1px solid lightgray;
